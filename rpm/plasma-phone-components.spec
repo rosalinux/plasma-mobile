@@ -9,14 +9,14 @@ Summary:	Plasma components for mobile phones
 # https://invent.kde.org/plasma/plasma-phone-components
 %if "%{?commit:%{commit}}" != ""
 Source0:	https://invent.kde.org/plasma/plasma-phone-components/-/archive/%{commit}/plasma-phone-components-%{commit}.tar.bz2
-Release:	1.%{snapshot}.%{commit}.1
+Release:	0.%{snapshot}.%{commit}.1
 %else
 %if 0%{?snapshot}
 Source0:	https://invent.kde.org/plasma/plasma-phone-components/-/archive/master/plasma-phone-components-master.tar.bz2
-Release:	1.%{snapshot}.1
+Release:	0.%{snapshot}.1
 %else
 Source0:	http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
-Release:	1
+Release:	2
 %endif
 %endif
 Patch0:		plasma-phone-components-x11-session.patch
