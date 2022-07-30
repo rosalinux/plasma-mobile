@@ -6,19 +6,8 @@
 Name:		plasma-phone-components
 Version:	5.23.5
 Summary:	Plasma components for mobile phones
-# https://invent.kde.org/plasma/plasma-phone-components
-%if "%{?commit:%{commit}}" != ""
-Source0:	https://invent.kde.org/plasma/plasma-phone-components/-/archive/%{commit}/plasma-phone-components-%{commit}.tar.bz2
-Release:	0.%{snapshot}.%{commit}.1
-%else
-%if 0%{?snapshot}
-Source0:	https://invent.kde.org/plasma/plasma-phone-components/-/archive/master/plasma-phone-components-master.tar.bz2
-Release:	0.%{snapshot}.1
-%else
-Source0:	http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
+Source0:	plasma-ayya-5.23.5.tar.gz
 Release:	2
-%endif
-%endif
 Patch0:		plasma-phone-components-x11-session.patch
 Patch2:		plasma-phone-components-dont-start-to-lockscreen.patch
 License:	GPLv2/LGPLv2/LGPLv2.1
@@ -100,15 +89,7 @@ Requires:	plasma-workspace-x11
 X11 session files for Plasma phone components.
 
 %prep
-%if "%{?commit:%{commit}}" != ""
-%autosetup -p1 -n %{name}-%{commit}
-%else
-%if 0%{?snapshot}
-%autosetup -p1 -n %{name}-master
-%else
 %autosetup -p1
-%endif
-%endif
 %cmake_kde5
 
 %build
