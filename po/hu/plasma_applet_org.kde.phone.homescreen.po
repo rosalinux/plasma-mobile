@@ -1,0 +1,23 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-phone-components package.
+#
+# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-phone-components\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-15 02:02+0000\n"
+"PO-Revision-Date: 2021-12-06 10:16+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.11.90\n"
+
+#: package/contents/ui/main.qml:199
+#, kde-format
+msgid "Applications"
+msgstr "Alkalmazások"

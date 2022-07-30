@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-30 01:38+0000\n"
+"PO-Revision-Date: 2021-12-22 14:09\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-stable/messages/plasma-phone-components/"
+"plasma_applet_org.kde.phone.panel.pot\n"
+"X-Crowdin-File-ID: 11921\n"
+
+#: package/contents/ui/indicators/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/indicators/providers/SignalStrengthProvider.qml:18
+#, kde-format
+msgid "Sim Locked"
+msgstr "SIM 卡已锁定"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:158
+#, kde-format
+msgid "Audio"
+msgstr "音频"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:162
+#, kde-format
+msgid "Increase Volume"
+msgstr "提高音量"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:169
+#, kde-format
+msgid "Decrease Volume"
+msgstr "降低音量"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:176
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Mute"
+msgstr "静音"
+
+#: package/contents/ui/main.qml:142
+#, kde-format
+msgid "Battery"
+msgstr "电池"
+
+#: package/contents/ui/main.qml:161
+#, kde-format
+msgid "Sound"
+msgstr "声音"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:36
+#, kde-format
+msgid "Settings"
+msgstr "设置"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:50
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi 无线网络"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:59
+#, kde-format
+msgid "Bluetooth"
+msgstr "蓝牙"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:74
+#, kde-format
+msgid "Mobile Data"
+msgstr "移动数据"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:83
+#, kde-format
+msgid "Flashlight"
+msgstr "手电筒"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:91
+#, kde-format
+msgid "Location"
+msgstr "位置"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:96
+#, kde-format
+msgid "Screenshot"
+msgstr "屏幕截图"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:105
+#, kde-format
+msgid "Auto-rotate"
+msgstr "自动旋转"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:74
+#, kde-format
+msgid "Outputs"
+msgstr "输出"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:102
+#, kde-format
+msgid "Inputs"
+msgstr "输入"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:131
+#, kde-format
+msgid "Playback Streams"
+msgstr "播放流"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:181
+#, kde-format
+msgid "Recording Streams"
+msgstr "录制流"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:25
+#, kde-format
+msgctxt "label of device items"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:34
+#, kde-format
+msgid "Device name not found"
+msgstr "未找到设备名称"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:109
+#, kde-format
+msgid "Show additional options for %1"
+msgstr "显示 %1 的附加选项"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:165
+#, kde-format
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "调节 %1 的音量"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:247
+#, kde-format
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:262
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:21
+#, kde-format
+msgid "Notification Sounds"
+msgstr "通知声音"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:24
+#, kde-format
+msgctxt "label of stream items"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:29
+#, kde-format
+msgid "Stream name not found"
+msgstr "未找到流名称"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Unmute"
+msgstr "取消静音"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:130
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:140
+#, kde-format
+msgctxt "Percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:160
+#, kde-format
+msgid "Open audio settings"
+msgstr "打开音频设置"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:173
+#, kde-format
+msgid "Audio Settings"
+msgstr "音频设置"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:180
+#, kde-format
+msgid "Toggle showing audio streams"
+msgstr "切换显示音频流"
+
+#: phonepanel.cpp:180
+#, kde-format
+msgid "New Screenshot"
+msgstr "新建屏幕截图"
+
+#: phonepanel.cpp:182
+#, kde-format
+msgid "New screenshot saved to %1"
+msgstr "新屏幕截图已保存到 %1"

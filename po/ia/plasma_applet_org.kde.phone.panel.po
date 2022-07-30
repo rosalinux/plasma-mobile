@@ -1,0 +1,210 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-phone-components package.
+#
+# Giovanni Sora <g.sora@tiscali.it>, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-phone-components\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-30 01:38+0000\n"
+"PO-Revision-Date: 2021-11-26 23:09+0100\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#: package/contents/ui/indicators/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/indicators/providers/SignalStrengthProvider.qml:18
+#, kde-format
+msgid "Sim Locked"
+msgstr "Sim blocate"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:158
+#, kde-format
+msgid "Audio"
+msgstr "Audio"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:162
+#, kde-format
+msgid "Increase Volume"
+msgstr "Augmenta volumine"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:169
+#, kde-format
+msgid "Decrease Volume"
+msgstr "Diminue Volumine"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:176
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Mute"
+msgstr "Silente"
+
+#: package/contents/ui/main.qml:142
+#, kde-format
+msgid "Battery"
+msgstr "Batteria"
+
+#: package/contents/ui/main.qml:161
+#, kde-format
+msgid "Sound"
+msgstr "Sono"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:36
+#, kde-format
+msgid "Settings"
+msgstr "Preferentias"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:50
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:59
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:74
+#, kde-format
+msgid "Mobile Data"
+msgstr "Datos Mobile"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:83
+#, kde-format
+msgid "Flashlight"
+msgstr "Flashlight (luce de fulgure)"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:91
+#, kde-format
+msgid "Location"
+msgstr "Location"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:96
+#, kde-format
+msgid "Screenshot"
+msgstr "Instantanee de schermo"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:105
+#, kde-format
+msgid "Auto-rotate"
+msgstr "Auto-rotar"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:74
+#, kde-format
+msgid "Outputs"
+msgstr "Exitos"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:102
+#, kde-format
+msgid "Inputs"
+msgstr "Ingressos"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:131
+#, kde-format
+msgid "Playback Streams"
+msgstr "Playback Streams (Fluxos de reproduction)"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:181
+#, kde-format
+msgid "Recording Streams"
+msgstr "registrante fluxos (Streams)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:25
+#, kde-format
+msgctxt "label of device items"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:34
+#, kde-format
+msgid "Device name not found"
+msgstr "Nomine de dispositivo non trovate"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:109
+#, kde-format
+msgid "Show additional options for %1"
+msgstr "Monstra optiones additional per %1 "
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:165
+#, kde-format
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "Adjusta volumine per %1"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:247
+#, kde-format
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:262
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:21
+#, kde-format
+msgid "Notification Sounds"
+msgstr "Sonos de notificationes"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:24
+#, kde-format
+msgctxt "label of stream items"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:29
+#, kde-format
+msgid "Stream name not found"
+msgstr "Nomine de fluxo (stream) non trovate"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Unmute"
+msgstr "Non silente"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:130
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:140
+#, kde-format
+msgctxt "Percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:160
+#, kde-format
+msgid "Open audio settings"
+msgstr "Aperi preferentias de audio"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:173
+#, kde-format
+msgid "Audio Settings"
+msgstr "Preferentias de audio"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:180
+#, kde-format
+msgid "Toggle showing audio streams"
+msgstr "Commuta monstrar fluxo audio"
+
+#: phonepanel.cpp:180
+#, kde-format
+msgid "New Screenshot"
+msgstr "Nove instantaneo de schermo"
+
+#: phonepanel.cpp:182
+#, kde-format
+msgid "New screenshot saved to %1"
+msgstr "Nove instantaneo de schermo salveguardate a %1"

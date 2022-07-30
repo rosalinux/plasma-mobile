@@ -1,0 +1,211 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-phone-components package.
+#
+# A S Alam <aalam.yellow@gmail.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-phone-components\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-30 01:38+0000\n"
+"PO-Revision-Date: 2021-06-21 08:22-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.2\n"
+
+#: package/contents/ui/indicators/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/indicators/providers/SignalStrengthProvider.qml:18
+#, fuzzy, kde-format
+#| msgid "Sim locked"
+msgid "Sim Locked"
+msgstr "ਸਿਮ ਲਾਕ ਹੈ"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:158
+#, kde-format
+msgid "Audio"
+msgstr "ਆਡੀਓ"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:162
+#, kde-format
+msgid "Increase Volume"
+msgstr "ਵਾਲੀਅਮ ਵਧਾਓ"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:169
+#, kde-format
+msgid "Decrease Volume"
+msgstr "ਵਾਲੀਅਮ ਘਟਾਓ"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:176
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Mute"
+msgstr "ਚੁੱਪ"
+
+#: package/contents/ui/main.qml:142
+#, kde-format
+msgid "Battery"
+msgstr "ਬੈਟਰੀ"
+
+#: package/contents/ui/main.qml:161
+#, kde-format
+msgid "Sound"
+msgstr "ਆਵਾਜ਼"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:36
+#, kde-format
+msgid "Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:50
+#, kde-format
+msgid "Wi-Fi"
+msgstr ""
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:59
+#, kde-format
+msgid "Bluetooth"
+msgstr "ਬਲੂਟੁੱਥ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:74
+#, kde-format
+msgid "Mobile Data"
+msgstr "ਮੋਬਾਈਲ ਡਾਟਾ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:83
+#, kde-format
+msgid "Flashlight"
+msgstr "ਫਲੈਸ਼-ਲਾਈਟ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:91
+#, kde-format
+msgid "Location"
+msgstr "ਟਿਕਾਣਾ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:96
+#, kde-format
+msgid "Screenshot"
+msgstr "ਸਕਰੀਨਸ਼ਾਟ"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:105
+#, kde-format
+msgid "Auto-rotate"
+msgstr "ਆਪੇ-ਘੁੰਮਾਓ"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:74
+#, kde-format
+msgid "Outputs"
+msgstr "ਆਉਟਪੁੱਟ"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:102
+#, kde-format
+msgid "Inputs"
+msgstr "ਇਨਪੁੱਟ"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:131
+#, kde-format
+msgid "Playback Streams"
+msgstr "ਪਲੇਅਬੈਕ ਸਟਰੀਮ"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:181
+#, kde-format
+msgid "Recording Streams"
+msgstr "ਰਿਕਾਰਡਿੰਗ ਸਟਰੀਮਾਂ"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:25
+#, kde-format
+msgctxt "label of device items"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:34
+#, kde-format
+msgid "Device name not found"
+msgstr "ਡਿਵਾਈਸ ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:109
+#, kde-format
+msgid "Show additional options for %1"
+msgstr "%1 ਲਈ ਹੋਰ ਚੋਣਵਾਂ ਵੇਖਾਓ"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:165
+#, kde-format
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "%1 ਲਈ ਵਾਲੀਅਮ ਅਡਜੱਸਟ ਕਰੋ"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:247
+#, kde-format
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:262
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:21
+#, kde-format
+msgid "Notification Sounds"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਸਾਊਂਡ"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:24
+#, kde-format
+msgctxt "label of stream items"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:29
+#, kde-format
+msgid "Stream name not found"
+msgstr "ਡਿਵਾਈਸ ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Unmute"
+msgstr "ਚੁੱਪ ਹਟਾਓ"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:130
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:140
+#, kde-format
+msgctxt "Percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:160
+#, kde-format
+msgid "Open audio settings"
+msgstr "ਆਡੀਓ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:173
+#, kde-format
+msgid "Audio Settings"
+msgstr "ਆਡੀਓ ਸੈਟਿੰਗਾਂ"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:180
+#, kde-format
+msgid "Toggle showing audio streams"
+msgstr "ਆਡੀਓ ਸਟਰੀਮਾਂ ਵੇਖਾਉਣ ਨੂੰ ਬਦਲੋ"
+
+#: phonepanel.cpp:180
+#, kde-format
+msgid "New Screenshot"
+msgstr "ਨਵਾਂ ਸਕਰੀਨਸ਼ਾਟ"
+
+#: phonepanel.cpp:182
+#, kde-format
+msgid "New screenshot saved to %1"
+msgstr "ਨਵਾਂ ਸਕਰੀਨਸ਼ਾਟ %1 ਵਿੱਚ ਸੰਭਾਲਿਆ"

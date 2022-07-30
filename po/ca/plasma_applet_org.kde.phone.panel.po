@@ -1,0 +1,213 @@
+# Translation of plasma_applet_org.kde.phone.panel.po to Catalan
+# Copyright (C) 2019-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020.
+# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-phone-components\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-30 01:38+0000\n"
+"PO-Revision-Date: 2021-09-16 15:39+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: package/contents/ui/indicators/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/indicators/providers/SignalStrengthProvider.qml:18
+#, kde-format
+msgid "Sim Locked"
+msgstr "SIM blocat"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:158
+#, kde-format
+msgid "Audio"
+msgstr "Àudio"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:162
+#, kde-format
+msgid "Increase Volume"
+msgstr "Apuja el volum"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:169
+#, kde-format
+msgid "Decrease Volume"
+msgstr "Abaixa el volum"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:176
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Mute"
+msgstr "Silenci"
+
+#: package/contents/ui/main.qml:142
+#, kde-format
+msgid "Battery"
+msgstr "Bateria"
+
+#: package/contents/ui/main.qml:161
+#, kde-format
+msgid "Sound"
+msgstr "So"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:36
+#, kde-format
+msgid "Settings"
+msgstr "Arranjament"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:50
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:59
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:74
+#, kde-format
+msgid "Mobile Data"
+msgstr "Dades mòbils"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:83
+#, kde-format
+msgid "Flashlight"
+msgstr "Llum del flaix"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:91
+#, kde-format
+msgid "Location"
+msgstr "Ubicació"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:96
+#, kde-format
+msgid "Screenshot"
+msgstr "Captura de pantalla"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:105
+#, kde-format
+msgid "Auto-rotate"
+msgstr "Gir automàtic"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:74
+#, kde-format
+msgid "Outputs"
+msgstr "Sortides"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:102
+#, kde-format
+msgid "Inputs"
+msgstr "Entrades"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:131
+#, kde-format
+msgid "Playback Streams"
+msgstr "Fluxos de reproducció"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:181
+#, kde-format
+msgid "Recording Streams"
+msgstr "Fluxos d'enregistrament"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:25
+#, kde-format
+msgctxt "label of device items"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:34
+#, kde-format
+msgid "Device name not found"
+msgstr "No s'ha trobat el nom del dispositiu"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:109
+#, kde-format
+msgid "Show additional options for %1"
+msgstr "Mostra les opcions addicionals de %1"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:165
+#, kde-format
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "Ajusta el volum de %1"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:247
+#, kde-format
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:262
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:21
+#, kde-format
+msgid "Notification Sounds"
+msgstr "Sons de notificació"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:24
+#, kde-format
+msgctxt "label of stream items"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:29
+#, kde-format
+msgid "Stream name not found"
+msgstr "No s'ha trobat el nom del flux"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Unmute"
+msgstr "Activa el so"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:130
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:140
+#, kde-format
+msgctxt "Percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:160
+#, kde-format
+msgid "Open audio settings"
+msgstr "Obre la configuració de l'àudio"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:173
+#, kde-format
+msgid "Audio Settings"
+msgstr "Configuració de l'àudio"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:180
+#, kde-format
+msgid "Toggle showing audio streams"
+msgstr "Canvia mostrant els fluxos d'àudio"
+
+#: phonepanel.cpp:180
+#, kde-format
+msgid "New Screenshot"
+msgstr "Captura de pantalla nova"
+
+#: phonepanel.cpp:182
+#, kde-format
+msgid "New screenshot saved to %1"
+msgstr "S'ha desat una captura de pantalla nova a %1"
