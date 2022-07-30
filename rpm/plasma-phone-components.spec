@@ -6,7 +6,7 @@
 Name:		plasma-phone-components
 Version:	5.23.5
 Summary:	Plasma components for mobile phones
-Source0:	lasma-phone-components-5.23.5.tar.gz
+Source0:	plasma-phone-components-5.23.5.tar.gz
 Release:	2
 Patch0:		plasma-phone-components-x11-session.patch
 Patch2:		plasma-phone-components-dont-start-to-lockscreen.patch
