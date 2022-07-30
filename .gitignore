@@ -11,3 +11,4 @@ build
 .idea
 /cmake-build*
 .cache
+/rpm/plasma*tar.gz

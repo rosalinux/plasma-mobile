@@ -1,0 +1,211 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-phone-components package.
+#
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-phone-components\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-30 01:38+0000\n"
+"PO-Revision-Date: 2021-09-24 09:11+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#: package/contents/ui/indicators/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/indicators/providers/SignalStrengthProvider.qml:18
+#, kde-format
+msgid "Sim Locked"
+msgstr "Sim kartica zaklenjena"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:158
+#, kde-format
+msgid "Audio"
+msgstr "Zvok"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:162
+#, kde-format
+msgid "Increase Volume"
+msgstr "Povečaj glasnost"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:169
+#, kde-format
+msgid "Decrease Volume"
+msgstr "Zmanjšaj glasnost"
+
+#: package/contents/ui/indicators/providers/VolumeProvider.qml:176
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Mute"
+msgstr "Utišaj"
+
+#: package/contents/ui/main.qml:142
+#, kde-format
+msgid "Battery"
+msgstr "Baterija"
+
+#: package/contents/ui/main.qml:161
+#, kde-format
+msgid "Sound"
+msgstr "Zvok"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:36
+#, kde-format
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:50
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:59
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:74
+#, kde-format
+msgid "Mobile Data"
+msgstr "Mobilni podatki"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:83
+#, kde-format
+msgid "Flashlight"
+msgstr "Svetilka"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:91
+#, kde-format
+msgid "Location"
+msgstr "Lokacija"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:96
+#, kde-format
+msgid "Screenshot"
+msgstr "Posnetek zaslona"
+
+#: package/contents/ui/quicksettings/SettingsModel.qml:105
+#, kde-format
+msgid "Auto-rotate"
+msgstr "Samodejno rotiraj"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:74
+#, kde-format
+msgid "Outputs"
+msgstr "Izhodi"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:102
+#, kde-format
+msgid "Inputs"
+msgstr "Vhodi"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:131
+#, kde-format
+msgid "Playback Streams"
+msgstr "Tokovi playbacka"
+
+#: package/contents/ui/volumeosd/AudioApplet.qml:181
+#, kde-format
+msgid "Recording Streams"
+msgstr "Tokovi snemanja"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:25
+#, kde-format
+msgctxt "label of device items"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: package/contents/ui/volumeosd/DeviceListItem.qml:34
+#, kde-format
+msgid "Device name not found"
+msgstr "Naprave s tem imenom ni mogoče najti"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:109
+#, kde-format
+msgid "Show additional options for %1"
+msgstr "Prikaži dodatne možnosti za %1"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:165
+#, kde-format
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "Prilagodi glasnost za %1"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:247
+#, kde-format
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/ListItemBase.qml:262
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:21
+#, kde-format
+msgid "Notification Sounds"
+msgstr "Zvoki obvestil"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:24
+#, kde-format
+msgctxt "label of stream items"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: package/contents/ui/volumeosd/StreamListItem.qml:29
+#, kde-format
+msgid "Stream name not found"
+msgstr "Toka s tem imenom ni mogoče najti"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:106
+#, kde-format
+msgid "Unmute"
+msgstr "Sprosti zvok"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:130
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:140
+#, kde-format
+msgctxt "Percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:160
+#, kde-format
+msgid "Open audio settings"
+msgstr "Odpri nastavitve zvoka"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:173
+#, kde-format
+msgid "Audio Settings"
+msgstr "Nastavitve zvoka"
+
+#: package/contents/ui/volumeosd/VolumeOsd.qml:180
+#, kde-format
+msgid "Toggle showing audio streams"
+msgstr "Preklopi prikaz tokov zvoka"
+
+#: phonepanel.cpp:180
+#, kde-format
+msgid "New Screenshot"
+msgstr "Novi posnetek zaslona"
+
+#: phonepanel.cpp:182
+#, kde-format
+msgid "New screenshot saved to %1"
+msgstr "Novi posnetek zaslona shranjen na %1"
