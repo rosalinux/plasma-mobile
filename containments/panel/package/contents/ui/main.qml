@@ -52,6 +52,9 @@ Item {
     }
 
     function addApplet(applet, x, y) {
+        if (applet.pluginName == "org.kde.plasma.notifications") {
+            return
+        }
         var compactContainer = compactContainerComponent.createObject(topPanel.applets)
         print("Applet added: " + applet + " " + applet.title)
 
@@ -64,12 +67,7 @@ Item {
         applet.expanded = true
         applet.expanded = false
 
-        var fullContainer = null;
-        if (applet.pluginName == "org.kde.plasma.notifications") {
-            fullContainer = fullNotificationsContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
-        } else {
-            fullContainer = fullContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
-        }
+        var ullContainer = fullContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
 
        // applet.fullRepresentationItem.parent = fullContainer;
         fullContainer.applet = applet;
@@ -127,11 +125,6 @@ Item {
     Component {
         id: fullContainerComponent
         FullContainer {}
-    }
-
-    Component {
-        id: fullNotificationsContainerComponent
-        FullNotificationsContainer {}
     }
 
     // indicator providers
