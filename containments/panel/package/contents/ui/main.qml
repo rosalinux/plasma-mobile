@@ -217,20 +217,16 @@ Item {
         width: plasmoid.availableScreenRect.width
         height: plasmoid.availableScreenRect.height
         topPanelHeight: topPanel.height
-        topEmptyAreaHeight: quickSettings.topEmptyAreaHeight
-        collapsedHeight: quickSettings.collapsedHeight
-        fullyOpenHeight: quickSettings.expandedHeight
+        topEmptyAreaHeight: 0
+        collapsedHeight: 0
+        fullyOpenHeight: 0
         
         appletsShown: fullRepresentationView.count > 0
-        
-        offset: quickSettings.height
-        
-        onClosed: quickSettings.closed()
 
         contentItem: MouseArea {
             // mousearea captures touch presses so that the flickable picks them up for swiping
             implicitWidth: slidingPanel.wideScreen ? panelContents.implicitWidth : slidingPanel.width
-            implicitHeight: Math.min(slidingPanel.height, quickSettings.implicitHeight)
+            implicitHeight: slidingPanel.height
 
             GridLayout {
                 id: panelContents
@@ -238,35 +234,21 @@ Item {
                 
                 columns: slidingPanel.wideScreen ? 2 : 1
                 rows: slidingPanel.wideScreen ? 1 : 2
-                
-                QuickSettingsPanel {
-                    id: quickSettings
-
-                    property int trueHeight: height + Math.round(Kirigami.Units.gridUnit * 1.5) // add height of bottom bar
-
-                    z: 4
-                    Layout.alignment: Qt.AlignTop
-                    Layout.preferredWidth: slidingPanel.wideScreen ? Math.min(slidingPanel.width/2, PlasmaCore.Units.gridUnit * 25) : panelContents.width
-
-                    parentSlidingPanel: slidingPanel
-                    onExpandRequested: slidingPanel.expand()
-                    onCloseRequested: slidingPanel.close()
-                }
 
                 // notifications and media player
                 ListView {
                     id: fullRepresentationView
                     implicitHeight: PlasmaCore.Units.gridUnit * 20
-                    Layout.preferredWidth: slidingPanel.wideScreen ? Math.min(slidingPanel.width/2, quickSettings.width*fullRepresentationModel.count) : panelContents.width 
+                    Layout.preferredWidth: panelContents.width 
                     Layout.preferredHeight: slidingPanel.wideScreen
-                            ? Math.min(PlasmaCore.Units.gridUnit * 20, Math.max(PlasmaCore.Units.gridUnit * 15, quickSettings.implicitHeight))
-                            : Math.min(plasmoid.screenGeometry.height - quickSettings.implicitHeight - bottomBar.height + slidingPanel.topEmptyAreaHeight, implicitHeight)
+                            ? Math.min(PlasmaCore.Units.gridUnit * 20, PlasmaCore.Units.gridUnit * 15)
+                            : Math.min(plasmoid.screenGeometry.height - bottomBar.height + slidingPanel.topEmptyAreaHeight, implicitHeight)
 
                     z: 1
                     interactive: true//count > 0 && width < contentWidth
 
                     clip: slidingPanel.wideScreen
-                    y: slidingPanel.wideScreen ? 0 : quickSettings.trueHeight
+                    y: 0
                     opacity: {
                         if (slidingPanel.wideScreen) {
                             return 1;
