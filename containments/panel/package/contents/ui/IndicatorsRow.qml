@@ -122,7 +122,7 @@ Item {
 
             TapHandler {
                 onTapped: {
-                    plasmoid.nativeInterface.launchApp("org.kde.kclock");
+                    //plasmoid.nativeInterface.launchApp("org.kde.kclock");
                 }
             }
         }

@@ -30,38 +30,23 @@ Item {
     signal closeRequested
     signal closed
 
-    property bool expandedMode: parentSlidingPanel.wideScreen
+    property bool expandedMode: false
 
-    readonly property real expandedRatio: expandedMode
-                    ? 1
-                    : Math.max(0, Math.min(1, (parentSlidingPanel.offset - collapsedHeight) /(expandedHeight-collapsedHeight)))
-
-    readonly property real topEmptyAreaHeight: parentSlidingPanel.userInteracting
-        ? (root.height - collapsedHeight) * (1 - expandedRatio)
-        : (expandedMode ? 0 : root.height - collapsedHeight)
+    readonly property real expandedRatio: 0
+    readonly property real topEmptyAreaHeight: root.height - collapsedHeight
 
 
     readonly property real collapsedHeight: column.Layout.minimumHeight + background.margins.top + background.fixedMargins.bottom
 
     readonly property real expandedHeight: column.Layout.maximumHeight + background.margins.top + background.fixedMargins.bottom
 
-    Connections {
-        target: root.parentSlidingPanel
-        function onUserInteractingChanged() {
-            if (!parentSlidingPanel.userInteracting) {
-                if (root.expandedRatio > 0.7) {
-                    root.expandedMode = true;
-                }
-            }
-        }
-    }
 
     property NanoShell.FullScreenOverlay parentSlidingPanel
 
     Connections {
         target: root.Window.window
         function onVisibilityChanged() {
-            root.expandedMode = parentSlidingPanel.wideScreen;
+            root.expandedMode = false;
         }
     }
 
@@ -75,7 +60,7 @@ Item {
     PlasmaCore.FrameSvgItem {
         id: background
         implicitHeight: root.expandedHeight
-        enabledBorders: parentSlidingPanel.wideScreen ? PlasmaCore.FrameSvg.AllBorders : PlasmaCore.FrameSvg.BottomBorder
+        enabledBorders: false ? PlasmaCore.FrameSvg.AllBorders : PlasmaCore.FrameSvg.BottomBorder
         anchors.fill: parent
         imagePath: "widgets/background"
 
@@ -85,7 +70,7 @@ Item {
             anchors {
                 leftMargin: parent.fixedMargins.left
                 rightMargin: parent.fixedMargins.right
-                bottomMargin: parent.fixedMargins.bottom * (parentSlidingPanel.wideScreen ? 1 : 0.5) // HACK: fix the bottom arrow not being centered, bottom margins aren't properly calculated it seems
+                bottomMargin: parent.fixedMargins.bottom * 0.5 // HACK: fix the bottom arrow not being centered, bottom margins aren't properly calculated it seems
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
@@ -210,8 +195,8 @@ Item {
                         if (root.expandedMode) {
                             root.closeRequested();
                         } else {
-                            root.expandRequested();
-                            root.expandedMode = true;
+                            //root.expandRequested();
+                            //root.expandedMode = true;
                         }
                     }
                 }
