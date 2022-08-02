@@ -84,7 +84,7 @@ NanoShell.FullScreenOverlay {
     function open() {
         cancelAnimations();
         openAnim.restart();
-        initiallyOpened = true;
+        initiallyOpened = false;
     }
     function close() {
         cancelAnimations();
@@ -94,7 +94,7 @@ NanoShell.FullScreenOverlay {
     function expand() {
         cancelAnimations();
         expandAnim.restart();
-        initiallyOpened = true;
+        initiallyOpened = false;
     }
     function updateState() {
         cancelAnimations();
