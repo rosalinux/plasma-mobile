@@ -34,7 +34,7 @@ FocusScope {
             return;
         }
 
-        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 3);
+        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 3;
     }
 
 //END functions
@@ -128,7 +128,7 @@ FocusScope {
 
         appDrawer: root.appDrawer
         contentWidth: Math.max(width, width * Math.ceil(homeScreenContents.itemsBoundingRect.width/width)) + (homeScreenContents.launcherDragManager.active ? width : 0)
-        showAddPageIndicator: homeScreenContents.launcherDragManager.active
+        showAddPageIndicator: false//homeScreenContents.launcherDragManager.active
 
         dragGestureEnabled: root.focus && (!appDrawer || appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) && !appletsLayout.editMode && !plasmoid.editMode && !homeScreenContents.launcherDragManager.active
 
@@ -142,7 +142,7 @@ FocusScope {
             id: favoriteStrip
 
             appletsLayout: homeScreenContents.appletsLayout
-            visible: flow.children.length > 0 || homeScreenContents.launcherDragManager.active || homeScreenContents.containsDrag
+            visible: flow.children.length > 0
             opacity: homeScreenContents.launcherDragManager.active && HomeScreenComponents.ApplicationListModel.favoriteCount >= HomeScreenComponents.ApplicationListModel.maxFavoriteCount ? 0.3 : 1
 
             TapHandler {

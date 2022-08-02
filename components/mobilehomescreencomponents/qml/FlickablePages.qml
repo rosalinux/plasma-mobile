@@ -66,8 +66,6 @@ Flickable {
         }
         autoScrollTimer.scrollRight = false;
         autoScrollTimer.running = true;
-        scrollLeftIndicator.opacity = 1;
-        scrollRightIndicator.opacity = 0;
     }
 
     function scrollRight() {
@@ -76,14 +74,10 @@ Flickable {
         }
         autoScrollTimer.scrollRight = true;
         autoScrollTimer.running = true;
-        scrollLeftIndicator.opacity = 0;
-        scrollRightIndicator.opacity = 1;
     }
 
     function stopScroll() {
         autoScrollTimer.running = false;
-        scrollLeftIndicator.opacity = 0;
-        scrollRightIndicator.opacity = 0;
     }
 
     function snapPage() {
@@ -143,72 +137,6 @@ Flickable {
         easing.type: Easing.InOutQuad
     }
 
-    PlasmaComponents.PageIndicator {
-        id: pageIndicator
-        anchors {
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
-            bottomMargin: mainFlickable.footer ? mainFlickable.footer.height : 0
-        }
-        PlasmaCore.ColorScope.inherit: false
-        PlasmaCore.ColorScope.colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
-        parent: mainFlickable
-        count: mainFlickable.totalPages
-        visible: count > 1
-        currentIndex: Math.round(mainFlickable.contentX / mainFlickable.width)
-        delegate: Rectangle {
-            property bool isAddPageIndicator: index === pageIndicator.count-1 && mainFlickable.showAddPageIndicator
-            implicitWidth: PlasmaCore.Units.gridUnit/2
-            implicitHeight: implicitWidth
-            
-            radius: width
-            color: isAddPageIndicator ? "transparent" : PlasmaCore.ColorScope.textColor
-
-
-            PlasmaComponents.Label {
-                anchors.centerIn: parent
-                visible: parent.isAddPageIndicator
-                text: "⊕"
-            }
-
-            opacity: index === currentIndex ? 0.9 : pressed ? 0.7 : 0.5
-            Behavior on opacity {
-                OpacityAnimator {
-                    duration: PlasmaCore.Units.longDuration
-                    easing.type: Easing.InOutQuad
-                }
-            }
-        }
-    }
-
-    Item {
-        z: 9999999
-        anchors.fill: parent
-        parent: {
-            let candidate = mainFlickable;
-            while (candidate.parent) {
-                candidate = candidate.parent;
-            }
-            return candidate;
-        }
-
-        Private.ScrollIndicator {
-            id: scrollLeftIndicator
-            anchors {
-                left: parent.left
-                leftMargin: PlasmaCore.Units.smallSpacing
-            }
-            elementId: "left-arrow"
-        }
-        Private.ScrollIndicator {
-            id: scrollRightIndicator
-            anchors {
-                right: parent.right
-                rightMargin: PlasmaCore.Units.smallSpacing
-            }
-            elementId: "right-arrow"
-        }
-    }
 }
 
 
