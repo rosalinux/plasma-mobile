@@ -34,7 +34,7 @@ FocusScope {
             return;
         }
 
-        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = Math.max(4, Math.floor(Math.min(width, height) / homeScreenContents.appletsLayout.cellWidth));
+        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 0);
     }
 
 //END functions

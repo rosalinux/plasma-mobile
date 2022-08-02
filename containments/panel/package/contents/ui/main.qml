@@ -67,7 +67,7 @@ Item {
         applet.expanded = true
         applet.expanded = false
 
-        var ullContainer = fullContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
+        var fullContainer = fullContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
 
        // applet.fullRepresentationItem.parent = fullContainer;
         fullContainer.applet = applet;
