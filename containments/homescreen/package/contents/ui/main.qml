@@ -34,7 +34,7 @@ FocusScope {
             return;
         }
 
-        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 0);
+        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 3);
     }
 
 //END functions
