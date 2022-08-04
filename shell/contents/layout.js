@@ -2,8 +2,7 @@ var desktopsArray = desktopsForActivity(currentActivity());
 for (var j = 0; j < desktopsArray.length; j++) {
     desktopsArray[j].wallpaperPlugin = "org.kde.image";
 }
-//desktopsArray[0].addWidget("org.kde.phone.krunner", 0, 0, screenGeometry(0).width, 20)
-// keep this list in sync with shell/contents/updates/panelsfix.js
+
 var panel = new Panel("org.kde.phone.panel");
 panel.location = "top";
 panel.addWidget("org.kde.plasma.notifications");
@@ -12,4 +11,4 @@ panel.height = 6 * gridUnit;
 
 var bottomPanel = new Panel("org.kde.phone.taskpanel")
 bottomPanel.location = "bottom";
-bottomPanel.height = 6 * gridUnit;
+bottomPanel.height = 12 * gridUnit;

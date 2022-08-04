@@ -172,7 +172,7 @@ Item {
         z: 1
         colorGroup: showingApp ? PlasmaCore.Theme.HeaderColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
         backgroundColor: !showingApp ? "transparent" : root.backgroundColor
-        showGradientBackground: !showingApp
-        showDropShadow: !showingApp
+        showGradientBackground: false //!showingApp
+        showDropShadow: false //!showingApp
     }
 }

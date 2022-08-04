@@ -84,7 +84,9 @@ Item {
         Loader {
             id: strengthLoader
             height: parent.height
-            width: item ? item.width : 0
+            width: 50//item ? item.width : 0
+            anchors.leftMargin: 100
+            anchors.left: parent.left
             active: signalStrengthProvider
             sourceComponent: Indicators.SignalStrength {
                 provider: signalStrengthProvider
@@ -118,13 +120,7 @@ Item {
             color: PlasmaCore.ColorScope.textColor
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-            font.pixelSize: height / 2
-
-            TapHandler {
-                onTapped: {
-                    //plasmoid.nativeInterface.launchApp("org.kde.kclock");
-                }
-            }
+            font.pixelSize: height * 0.75
         }
 
         RowLayout {

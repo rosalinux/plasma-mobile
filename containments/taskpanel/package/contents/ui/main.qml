@@ -176,16 +176,7 @@ PlasmaCore.ColorScope {
             
             Rectangle {
                 anchors.fill: parent
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0
-                        color: showingApp ? root.backgroundColor : "transparent"
-                    }
-                    GradientStop {
-                        position: 1
-                        color: showingApp ? root.backgroundColor : Qt.rgba(0, 0, 0, 0.1)
-                    }
-                }
+                color: showingApp ? root.backgroundColor : "transparent"
             }
 
             Button {
@@ -199,7 +190,7 @@ PlasmaCore.ColorScope {
                     plasmoid.nativeInterface.showDesktop = false;
                     taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
                 }
-                iconSizeFactor: 0.75
+                iconSizeFactor: 1
                 iconSource: "mobile-task-switcher"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
