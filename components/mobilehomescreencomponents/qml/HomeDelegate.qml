@@ -114,7 +114,7 @@ ContainmentLayoutManager.ItemContainer {
 
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.fillWidth: true
-                Layout.minimumHeight: Math.min(PlasmaCore.Units.iconSizes.large, parent.height - delegate.reservedSpaceForLabel)
+                Layout.minimumHeight: Math.min(PlasmaCore.Units.iconSizes.huge * 1.5, parent.height - delegate.reservedSpaceForLabel)
                 Layout.preferredHeight: Layout.minimumHeight
 
                 usesPlasmaTheme: false

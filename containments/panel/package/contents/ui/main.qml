@@ -171,7 +171,7 @@ Item {
         anchors.fill: parent
         z: 1
         colorGroup: showingApp ? PlasmaCore.Theme.HeaderColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-        backgroundColor: !showingApp ? "transparent" : root.backgroundColor
+        backgroundColor: root.backgroundColor
         showGradientBackground: false //!showingApp
         showDropShadow: false //!showingApp
     }
