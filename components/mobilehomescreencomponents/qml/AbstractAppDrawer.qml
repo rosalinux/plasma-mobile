@@ -186,19 +186,6 @@ Item {
                 color: "transparent"
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.drawerTopMargin
-                
-                OpenDrawerButton {
-                    id: openDrawerButton
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    factor: root.openFactor
-                    flickable: view
-                    onOpenRequested: root.open();
-                    onCloseRequested: root.close();
-                }
             }
             
             // actual drawer
