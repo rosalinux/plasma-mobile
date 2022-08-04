@@ -191,7 +191,7 @@ PlasmaCore.ColorScope {
                     taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
                 }
                 iconSizeFactor: 1
-                iconSource: "mobile-task-switcher"
+                iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
 
@@ -208,7 +208,7 @@ PlasmaCore.ColorScope {
                     plasmoid.nativeInterface.allMinimizedChanged();
                 }
                 iconSizeFactor: 1
-                iconSource: "start-here-kde"
+                iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
 
@@ -235,7 +235,7 @@ PlasmaCore.ColorScope {
 
                 // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
                 iconSizeFactor: TaskPanel.KWinVirtualKeyboard.visible ? 1 : 0.75
-                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "mobile-close-app"
+                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
         }

@@ -7,7 +7,6 @@
 
 
 import QtQuick 2.12
-import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
 import QtQml.Models 2.12
 import QtGraphicalEffects 1.12
@@ -43,6 +42,18 @@ Item {
         interval: 60 * 1000
     }
 
+    DropShadow {
+        anchors.fill: icons
+        visible: showDropShadow
+        cached: true
+        horizontalOffset: 0
+        verticalOffset: 1
+        radius: 4.0
+        samples: 17
+        color: Qt.rgba(0,0,0,0.8)
+        source: icons
+    }
+
     // screen top panel
     PlasmaCore.ColorScope {
         id: icons
@@ -54,6 +65,20 @@ Item {
         Rectangle {
             anchors.fill: parent
             color: backgroundColor
+        }
+        Rectangle {
+            visible: showGradientBackground
+            anchors.fill: parent
+            gradient: Gradient {
+                GradientStop {
+                    position: 1.0
+                    color: "transparent"
+                }
+                GradientStop {
+                    position: 0.0
+                    color: Qt.rgba(0, 0, 0, 0.1)
+                }
+            }
         }
 
         Loader {
