@@ -67,7 +67,7 @@ Item {
     signal dragStarted
 
     readonly property int reservedSpaceForLabel: metrics.height
-    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge + reservedSpaceForLabel
+    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge * 1.5 + reservedSpaceForLabel
 
     readonly property real openFactor: factorNormalize(flickable.contentY / (units.gridUnit * 10))
 

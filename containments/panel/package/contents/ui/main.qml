@@ -25,7 +25,6 @@ import org.kde.plasma.private.mobilehomescreencomponents 0.1 as HomeScreenCompon
 
 import "LayoutManager.js" as LayoutManager
 
-import "quicksettings"
 import "indicators" as Indicators
 import "indicators/providers" as IndicatorProviders
 
@@ -52,27 +51,6 @@ Item {
     }
 
     function addApplet(applet, x, y) {
-        if (applet.pluginName == "org.kde.plasma.notifications") {
-            return
-        }
-        var compactContainer = compactContainerComponent.createObject(topPanel.applets)
-        print("Applet added: " + applet + " " + applet.title)
-
-        applet.parent = compactContainer;
-        compactContainer.applet = applet;
-        applet.anchors.fill = compactContainer;
-        applet.visible = true;
-
-        //FIXME: make a way to instantiate fullRepresentationItem without the open/close dance
-        applet.expanded = true
-        applet.expanded = false
-
-        var fullContainer = fullContainerComponent.createObject(fullRepresentationView.contentItem, {"fullRepresentationModel": fullRepresentationModel, "fullRepresentationView": fullRepresentationView});
-
-       // applet.fullRepresentationItem.parent = fullContainer;
-        fullContainer.applet = applet;
-        fullContainer.contentItem = applet.fullRepresentationItem;
-        //applet.fullRepresentationItem.anchors.fill = fullContainer;
         
     }
 
@@ -137,7 +115,7 @@ Item {
             enabled: false
             settingsCommand: "plasma-open-settings kcm_mobile_power"
         }
-        Component.onCompleted: quickSettings.quickSettingsModel.include(setting)
+        //Component.onCompleted: quickSettings.quickSettingsModel.include(setting)
     }
     IndicatorProviders.BluetoothProvider {
         id: bluetoothProvider
@@ -159,7 +137,7 @@ Item {
                 volumeProvider.showVolumeOverlay()
             }
         }
-        Component.onCompleted: quickSettings.quickSettingsModel.include(setting)
+        //Component.onCompleted: quickSettings.quickSettingsModel.include(setting)
     }
     IndicatorProviders.WifiProvider {
         id: wifiProvider
