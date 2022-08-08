@@ -33,6 +33,7 @@ Item {
     MouseArea {
         anchors.fill: taskIcon
         onClicked: {
+            return
             //print(iconSvg.hasElement(IconName))
             var service = statusNotifierSource.serviceForSource(DataEngineSource)
             var operation = service.operationDescription("Activate")

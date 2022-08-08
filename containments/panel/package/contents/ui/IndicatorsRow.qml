@@ -21,6 +21,8 @@ import org.kde.taskmanager 0.1 as TaskManager
 import org.kde.plasma.private.nanoshell 2.0 as NanoShell
 import org.kde.plasma.private.mobileshell 1.0 as MobileShell
 
+import org.kde.plasma.wallpapers.image 2.0 as Wallpaper
+
 import "LayoutManager.js" as LayoutManager
 
 import "indicators" as Indicators
@@ -42,18 +44,6 @@ Item {
         interval: 60 * 1000
     }
 
-    DropShadow {
-        anchors.fill: icons
-        visible: showDropShadow
-        cached: true
-        horizontalOffset: 0
-        verticalOffset: 1
-        radius: 4.0
-        samples: 17
-        color: Qt.rgba(0,0,0,0.8)
-        source: icons
-    }
-
     // screen top panel
     PlasmaCore.ColorScope {
         id: icons
@@ -62,88 +52,107 @@ Item {
         anchors.fill: parent
         
         // background
+
+        Wallpaper.Image {
+            id: imageWallpaper
+            //the oneliner of difference between image and slideshow wallpapers
+            renderingMode: (wallpaper.pluginName === "org.kde.image") ? Wallpaper.Image.SingleImage : Wallpaper.Image.SlideShow
+            targetSize: back.sourceSize
+            slidePaths: wallpaper.configuration.SlidePaths
+            slideTimer: wallpaper.configuration.SlideInterval
+            slideshowMode: wallpaper.configuration.SlideshowMode
+            slideshowFoldersFirst: wallpaper.configuration.SlideshowFoldersFirst
+            uncheckedSlides: wallpaper.configuration.UncheckedSlides
+        }
+
+        Image{
+            anchors.fill: parent
+            source: imageWallpaper.wallpaperPath
+            fillMode: Image.PreserveAspectCrop
+            verticalAlignment: Image.AlignTop
+            clip: true
+        }
+
         Rectangle {
             anchors.fill: parent
             color: backgroundColor
         }
-        Rectangle {
-            visible: showGradientBackground
-            anchors.fill: parent
-            gradient: Gradient {
-                GradientStop {
-                    position: 1.0
-                    color: "transparent"
-                }
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(0, 0, 0, 0.1)
-                }
-            }
-        }
 
-        Loader {
-            id: strengthLoader
-            height: parent.height
-            width: 50//item ? item.width : 0
-            anchors.leftMargin: 100
+        Rectangle{
+            anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            active: signalStrengthProvider
-            sourceComponent: Indicators.SignalStrength {
-                provider: signalStrengthProvider
-            }
-        }
+            anchors.right: parent.right
+            height: parent.height / 2
+            color: "transparent"
 
-        Row {
-            id: statusNotifierIndicatorsRow
-            anchors.left: strengthLoader.right
-            height: parent.height
-            Repeater {
-                id: statusNotifierRepeater
-                model: PlasmaCore.SortFilterModel {
-                    id: filteredStatusNotifiers
-                    filterRole: "Title"
-                    sourceModel: PlasmaCore.DataModel {
-                        dataSource: statusNotifierSource
+
+            PlasmaComponents.Label {
+                id: clock
+                property bool is24HourTime: plasmoid.nativeInterface.isSystem24HourFormat
+                anchors.leftMargin: 110
+                anchors.left: parent.left
+                height: parent.height
+                text: Qt.formatTime(timeSource.data.Local.DateTime, is24HourTime ? "h:mm" : "h:mm ap")
+                color: PlasmaCore.ColorScope.textColor
+                verticalAlignment: Qt.AlignVCenter
+                font.pixelSize: height * 0.75
+            }
+
+
+
+            Row {
+                id: statusNotifierIndicatorsRow
+                anchors.right: strengthLoader.left
+                height: parent.height
+                Repeater {
+                    id: statusNotifierRepeater
+                    model: PlasmaCore.SortFilterModel {
+                        id: filteredStatusNotifiers
+                        filterRole: "Title"
+                        sourceModel: PlasmaCore.DataModel {
+                            dataSource: statusNotifierSource
+                        }
                     }
+                    delegate: TaskWidget {}
                 }
+            }
 
-                delegate: TaskWidget {}
+            Loader {
+                id: strengthLoader
+                height: parent.height
+                width: item ? item.width : 50
+                anchors.right: appletIconsRow.left
+                active: signalStrengthProvider
+                sourceComponent: Indicators.SignalStrength {
+                    provider: signalStrengthProvider
+                }
+            }
+
+
+
+            RowLayout {
+                id: appletIconsRow
+                anchors {
+                    bottom: parent.bottom
+                    right: simpleIndicatorsLayout.left
+                }
+                height: parent.height
+            }
+
+            RowLayout {
+                id: simpleIndicatorsLayout
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    right: parent.right
+                    rightMargin: PlasmaCore.Units.smallSpacing
+                }
+                Indicators.Bluetooth { provider: bluetoothProvider }
+                Indicators.Wifi { provider: wifiProvider }
+                Indicators.Volume { provider: volumeProvider }
+                Indicators.Battery { provider: batteryProvider }
             }
         }
 
-        PlasmaComponents.Label {
-            id: clock
-            property bool is24HourTime: plasmoid.nativeInterface.isSystem24HourFormat
-            
-            anchors.fill: parent
-            text: Qt.formatTime(timeSource.data.Local.DateTime, is24HourTime ? "h:mm" : "h:mm ap")
-            color: PlasmaCore.ColorScope.textColor
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-            font.pixelSize: height * 0.75
-        }
-
-        RowLayout {
-            id: appletIconsRow
-            anchors {
-                bottom: parent.bottom
-                right: simpleIndicatorsLayout.left
-            }
-            height: parent.height
-        }
-
-        RowLayout {
-            id: simpleIndicatorsLayout
-            anchors {
-                top: parent.top
-                bottom: parent.bottom
-                right: parent.right
-                rightMargin: PlasmaCore.Units.smallSpacing
-            }
-            Indicators.Bluetooth { provider: bluetoothProvider }
-            Indicators.Wifi { provider: wifiProvider }
-            Indicators.Volume { provider: volumeProvider }
-            Indicators.Battery { provider: batteryProvider }
-        }
     }
 }

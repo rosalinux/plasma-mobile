@@ -16,10 +16,10 @@ if (!topFound) {
     topPanel.addWidget("org.kde.plasma.notifications");
     topPanel.addWidget("org.kde.plasma.mediacontroller");
     topPanel.location = "top";
-    topPanel.height = 1 * gridUnit;
+    topPanel.height = 2 * gridUnit;
 }
 if (!bottomFound) {
     let bottomPanel = new Panel("org.kde.phone.taskpanel")
     bottomPanel.location = "bottom";
-    bottomPanel.height = 2 * gridUnit;
+    bottomPanel.height = 3 * gridUnit;
 }

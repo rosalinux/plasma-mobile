@@ -32,7 +32,6 @@ Item {
     id: root
     width: 480
     height: 30
-
     Plasmoid.backgroundHints: showingApp ? PlasmaCore.Types.StandardBackground : PlasmaCore.Types.NoBackground
 
     property Item toolBox
@@ -148,8 +147,8 @@ Item {
         id: topPanel
         anchors.fill: parent
         z: 1
-        colorGroup: showingApp ? PlasmaCore.Theme.HeaderColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-        backgroundColor: root.backgroundColor
+        colorGroup: root.showingApp ? PlasmaCore.Theme.HeaderColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+        backgroundColor: !root.showingApp ? "transparent" : root.backgroundColor
         showGradientBackground: false //!showingApp
         showDropShadow: false //!showingApp
     }

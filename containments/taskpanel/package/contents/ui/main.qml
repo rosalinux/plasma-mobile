@@ -93,6 +93,7 @@ PlasmaCore.ColorScope {
     MouseArea {
         id: mainMouseArea
         anchors.fill: parent
+
         property int oldMouseY: 0
         property int startMouseY: 0
         property int oldMouseX: 0
@@ -156,7 +157,7 @@ PlasmaCore.ColorScope {
             }
         }
 
-        DropShadow {
+        /*DropShadow {
             anchors.fill: icons
             visible: !showingApp
             cached: true
@@ -166,7 +167,7 @@ PlasmaCore.ColorScope {
             samples: 17
             color: Qt.rgba(0,0,0,0.8)
             source: icons
-        }
+        }*/
         Item {
             id: icons
             anchors.fill: parent
@@ -179,64 +180,72 @@ PlasmaCore.ColorScope {
                 color: showingApp ? root.backgroundColor : "transparent"
             }
 
-            Button {
-                id: tasksButton
-                mouseArea: mainMouseArea
-                enabled: root.hasTasks
-                onClicked: {
-                    if (!enabled) {
-                        return;
-                    }
-                    plasmoid.nativeInterface.showDesktop = false;
-                    taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
-                }
-                iconSizeFactor: 1
-                iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
-                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-            }
+            Rectangle{
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: parent.height / 3 * 2
+                color: "transparent"
 
-            Button {
-                id: showDesktopButton
-                anchors.centerIn: parent
-                mouseArea: mainMouseArea
-                onClicked: {
-                    if (!enabled) {
-                        return;
+                Button {
+                    id: tasksButton
+                    mouseArea: mainMouseArea
+                    enabled: root.hasTasks
+                    onClicked: {
+                        if (!enabled) {
+                            return;
+                        }
+                        plasmoid.nativeInterface.showDesktop = false;
+                        taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
                     }
-                    root.minimizeAll();
-                    MobileShell.HomeScreenControls.resetHomeScreenPosition();
-                    plasmoid.nativeInterface.allMinimizedChanged();
-                }
-                iconSizeFactor: 1
-                iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
-                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-            }
-
-            Button {
-                id: closeTaskButton
-                mouseArea: mainMouseArea
-                enabled: TaskPanel.KWinVirtualKeyboard.visible || (plasmoid.nativeInterface.hasCloseableActiveWindow && !taskSwitcher.visible)
-                onClicked: {
-                    if (!enabled) {
-                        return
-                    }
-                    if (TaskPanel.KWinVirtualKeyboard.active) {
-                        TaskPanel.KWinVirtualKeyboard.active = false
-                        return;
-                    }
-                    if (!plasmoid.nativeInterface.hasCloseableActiveWindow) {
-                        return;
-                    }
-                    var index = taskSwitcher.model.activeTask;
-                    if (index) {
-                        taskSwitcher.model.requestClose(index);
-                    }
+                    iconSizeFactor: 1
+                    iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
+                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
                 }
 
-                // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
-                iconSizeFactor: TaskPanel.KWinVirtualKeyboard.visible ? 1 : 0.75
-                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
-                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+                Button {
+                    id: showDesktopButton
+                    anchors.centerIn: parent
+                    mouseArea: mainMouseArea
+                    onClicked: {
+                        if (!enabled) {
+                            return;
+                        }
+                        root.minimizeAll();
+                        MobileShell.HomeScreenControls.resetHomeScreenPosition();
+                        plasmoid.nativeInterface.allMinimizedChanged();
+                    }
+                    iconSizeFactor: 1
+                    iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
+                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+                }
+
+                Button {
+                    id: closeTaskButton
+                    mouseArea: mainMouseArea
+                    enabled: TaskPanel.KWinVirtualKeyboard.visible || (plasmoid.nativeInterface.hasCloseableActiveWindow && !taskSwitcher.visible)
+                    onClicked: {
+                        if (!enabled) {
+                            return
+                        }
+                        if (TaskPanel.KWinVirtualKeyboard.active) {
+                            TaskPanel.KWinVirtualKeyboard.active = false
+                            return;
+                        }
+                        if (!plasmoid.nativeInterface.hasCloseableActiveWindow) {
+                            return;
+                        }
+                        var index = taskSwitcher.model.activeTask;
+                        if (index) {
+                            taskSwitcher.model.requestClose(index);
+                        }
+                    }
+
+                    // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
+                    iconSizeFactor: 1
+                    iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
+                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+                }
             }
         }
 

@@ -7,8 +7,8 @@ var panel = new Panel("org.kde.phone.panel");
 panel.location = "top";
 panel.addWidget("org.kde.plasma.notifications");
 panel.addWidget("org.kde.plasma.mediacontroller");
-panel.height = 1 * gridUnit;
+panel.height = 2 * gridUnit;
 
 var bottomPanel = new Panel("org.kde.phone.taskpanel")
 bottomPanel.location = "bottom";
-bottomPanel.height = 2 * gridUnit;
+bottomPanel.height = 3 * gridUnit;
