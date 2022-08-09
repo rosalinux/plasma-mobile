@@ -44,6 +44,21 @@ Item {
         interval: 60 * 1000
     }
 
+    Wallpaper.Image {
+        id: imageWallpaper
+        renderingMode: Wallpaper.Image.SingleImage
+    }
+
+    Image{
+        anchors.fill: parent
+        source: imageWallpaper.wallpaperPath
+        fillMode: Image.PreserveAspectCrop
+        verticalAlignment: Image.AlignTop
+        clip: true
+    }
+
+
+
     // screen top panel
     PlasmaCore.ColorScope {
         id: icons
@@ -52,27 +67,6 @@ Item {
         anchors.fill: parent
         
         // background
-
-        Wallpaper.Image {
-            id: imageWallpaper
-            //the oneliner of difference between image and slideshow wallpapers
-            renderingMode: (wallpaper.pluginName === "org.kde.image") ? Wallpaper.Image.SingleImage : Wallpaper.Image.SlideShow
-            targetSize: back.sourceSize
-            slidePaths: wallpaper.configuration.SlidePaths
-            slideTimer: wallpaper.configuration.SlideInterval
-            slideshowMode: wallpaper.configuration.SlideshowMode
-            slideshowFoldersFirst: wallpaper.configuration.SlideshowFoldersFirst
-            uncheckedSlides: wallpaper.configuration.UncheckedSlides
-        }
-
-        Image{
-            anchors.fill: parent
-            source: imageWallpaper.wallpaperPath
-            fillMode: Image.PreserveAspectCrop
-            verticalAlignment: Image.AlignTop
-            clip: true
-        }
-
         Rectangle {
             anchors.fill: parent
             color: backgroundColor

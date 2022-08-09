@@ -19,6 +19,8 @@ import org.kde.plasma.private.nanoshell 2.0 as NanoShell
 import org.kde.plasma.private.mobileshell 1.0 as MobileShell
 import org.kde.plasma.phone.taskpanel 1.0 as TaskPanel
 
+import org.kde.plasma.wallpapers.image 2.0 as Wallpaper
+
 PlasmaCore.ColorScope {
     id: root
     width: 600
@@ -168,84 +170,96 @@ PlasmaCore.ColorScope {
             color: Qt.rgba(0,0,0,0.8)
             source: icons
         }*/
+
+
+        Wallpaper.Image {
+            id: imageWallpaper
+            renderingMode: Wallpaper.Image.SingleImage
+        }
+
+        Image{
+            anchors.fill: parent
+            source: imageWallpaper.wallpaperPath
+            fillMode: Image.PreserveAspectCrop
+            verticalAlignment: Image.AlignBottom
+            clip: true
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            color: showingApp ? root.backgroundColor : "transparent"
+        }
+
         Item {
             id: icons
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: parent.height / 3 * 2
+
 
             visible: plasmoid.configuration.PanelButtonsVisible
             property real buttonLength: 0
-            
-            Rectangle {
-                anchors.fill: parent
-                color: showingApp ? root.backgroundColor : "transparent"
+
+            Button {
+                id: tasksButton
+                mouseArea: mainMouseArea
+                enabled: root.hasTasks
+                onClicked: {
+                    if (!enabled) {
+                        return;
+                    }
+                    plasmoid.nativeInterface.showDesktop = false;
+                    taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
+                    
+                }
+                iconSizeFactor: 1
+                iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
+                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
 
-            Rectangle{
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: parent.top
-                height: parent.height / 3 * 2
-                color: "transparent"
-
-                Button {
-                    id: tasksButton
-                    mouseArea: mainMouseArea
-                    enabled: root.hasTasks
-                    onClicked: {
-                        if (!enabled) {
-                            return;
-                        }
-                        plasmoid.nativeInterface.showDesktop = false;
-                        taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
+            Button {
+                id: showDesktopButton
+                anchors.centerIn: parent
+                mouseArea: mainMouseArea
+                onClicked: {
+                    if (!enabled) {
+                        return;
                     }
-                    iconSizeFactor: 1
-                    iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
-                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+                    root.minimizeAll();
+                    MobileShell.HomeScreenControls.resetHomeScreenPosition();
+                    plasmoid.nativeInterface.allMinimizedChanged();
+                }
+                iconSizeFactor: 1
+                iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
+                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
+            }
+
+            Button {
+                id: closeTaskButton
+                mouseArea: mainMouseArea
+                enabled: TaskPanel.KWinVirtualKeyboard.visible || (plasmoid.nativeInterface.hasCloseableActiveWindow && !taskSwitcher.visible)
+                onClicked: {
+                    if (!enabled) {
+                        return
+                    }
+                    if (TaskPanel.KWinVirtualKeyboard.active) {
+                        TaskPanel.KWinVirtualKeyboard.active = false
+                        return;
+                    }
+                    if (!plasmoid.nativeInterface.hasCloseableActiveWindow) {
+                        return;
+                    }
+                    var index = taskSwitcher.model.activeTask;
+                    if (index) {
+                        taskSwitcher.model.requestClose(index);
+                    }
                 }
 
-                Button {
-                    id: showDesktopButton
-                    anchors.centerIn: parent
-                    mouseArea: mainMouseArea
-                    onClicked: {
-                        if (!enabled) {
-                            return;
-                        }
-                        root.minimizeAll();
-                        MobileShell.HomeScreenControls.resetHomeScreenPosition();
-                        plasmoid.nativeInterface.allMinimizedChanged();
-                    }
-                    iconSizeFactor: 1
-                    iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
-                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-                }
-
-                Button {
-                    id: closeTaskButton
-                    mouseArea: mainMouseArea
-                    enabled: TaskPanel.KWinVirtualKeyboard.visible || (plasmoid.nativeInterface.hasCloseableActiveWindow && !taskSwitcher.visible)
-                    onClicked: {
-                        if (!enabled) {
-                            return
-                        }
-                        if (TaskPanel.KWinVirtualKeyboard.active) {
-                            TaskPanel.KWinVirtualKeyboard.active = false
-                            return;
-                        }
-                        if (!plasmoid.nativeInterface.hasCloseableActiveWindow) {
-                            return;
-                        }
-                        var index = taskSwitcher.model.activeTask;
-                        if (index) {
-                            taskSwitcher.model.requestClose(index);
-                        }
-                    }
-
-                    // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
-                    iconSizeFactor: 1
-                    iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
-                    colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
-                }
+                // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
+                iconSizeFactor: 1
+                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
+                colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
         }
 
