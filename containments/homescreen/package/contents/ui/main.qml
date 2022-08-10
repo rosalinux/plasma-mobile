@@ -50,14 +50,14 @@ FocusScope {
         }
         function onSnapHomeScreenPosition() {
             if (lastRequestedPosition < 0) {
-                root.appDrawer.open();
+                //root.appDrawer.open();
             } else {
                 root.appDrawer.close();
             }
         }
         function onRequestRelativeScroll(pos) {
-            root.appDrawer.offset -= pos.y;
-            lastRequestedPosition = pos.y;
+            //root.appDrawer.offset -= pos.y;
+            //lastRequestedPosition = pos.y;
         }
     }
 
@@ -104,14 +104,14 @@ FocusScope {
         }
         function onSnapHomeScreenPosition() {
             if (lastRequestedPosition < 0) {
-                root.appDrawer.open();
+                //root.appDrawer.open();
             } else {
                 root.appDrawer.close();
             }
         }
         function onRequestRelativeScroll(pos) {
-            root.appDrawer.offset -= pos.y;
-            lastRequestedPosition = pos.y;
+            //root.appDrawer.offset -= pos.y;
+            //lastRequestedPosition = pos.y;
         }
     }
 
@@ -130,7 +130,7 @@ FocusScope {
         contentWidth: Math.max(width, width * Math.ceil(homeScreenContents.itemsBoundingRect.width/width)) + (homeScreenContents.launcherDragManager.active ? width : 0)
         showAddPageIndicator: false//homeScreenContents.launcherDragManager.active
 
-        dragGestureEnabled: root.focus && (!appDrawer || appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) && !appletsLayout.editMode && !plasmoid.editMode && !homeScreenContents.launcherDragManager.active
+        dragGestureEnabled: false//root.focus && (!appDrawer || appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) && !appletsLayout.editMode && !plasmoid.editMode && !homeScreenContents.launcherDragManager.active
 
         HomeScreenComponents.HomeScreenContents {
             id: homeScreenContents
@@ -174,7 +174,7 @@ FocusScope {
             plasmoid.nativeInterface.showingDesktop = true
         } else if (appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) {
             mainFlickable.currentIndex = 0
-            root.appDrawer.open()
+            //root.appDrawer.open()
         } else {
             plasmoid.nativeInterface.showingDesktop = false
             root.appDrawer.close()
