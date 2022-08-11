@@ -166,7 +166,7 @@ DragDrop.DropArea {
                 appletsLayout.editMode = false;
                 appletsLayout.forceActiveFocus();
             }
-            onLongPressed: appletsLayout.editMode = true;
+            //onLongPressed: appletsLayout.editMode = true;
             onPressedChanged: appletsLayout.focus = true;
         }
 
