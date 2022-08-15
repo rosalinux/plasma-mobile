@@ -114,7 +114,7 @@ Item {
             Loader {
                 id: strengthLoader
                 height: parent.height
-                width: item ? item.width : 50
+                width: item ? item.width : 0
                 anchors.right: appletIconsRow.left
                 active: signalStrengthProvider
                 sourceComponent: Indicators.SignalStrength {
