@@ -104,9 +104,9 @@ bool appNameLessThan(const ApplicationListModel::ApplicationData &a1, const Appl
 
 void ApplicationListModel::initWayland()
 {
-    /*if (!QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+    if (!QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
         return;
-    }*/
+    }
     using namespace KWayland::Client;
     ConnectionThread *connection = ConnectionThread::fromApplication(this);
 
