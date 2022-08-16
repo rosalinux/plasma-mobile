@@ -31,6 +31,7 @@ Repeater {
     signal scrollLeftRequested
     signal scrollRightRequested
     signal stopScrollRequested
+    signal launched
 
     delegate: HomeDelegate {
         id: delegate
@@ -109,7 +110,7 @@ Repeater {
                         delegate.iconItem.Kirigami.ScenePosition.y + delegate.iconItem.height/2,
                         Math.min(delegate.iconItem.width, delegate.iconItem.height));
             }
-            root.launched();
+            launcherRepeater.launched();
         }
         onParentFromLocationChanged: {
             if (!launcherDragManager.active && parent != parentFromLocation) {

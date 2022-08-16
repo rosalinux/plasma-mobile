@@ -19,6 +19,8 @@ import org.kde.plasma.private.nanoshell 2.0 as NanoShell
 import org.kde.plasma.private.mobileshell 1.0 as MobileShell
 import org.kde.plasma.phone.taskpanel 1.0 as TaskPanel
 
+import org.kde.plasma.wallpapers.image 2.0 as Wallpaper
+
 PlasmaCore.ColorScope {
     id: root
     width: 600
@@ -93,6 +95,7 @@ PlasmaCore.ColorScope {
     MouseArea {
         id: mainMouseArea
         anchors.fill: parent
+
         property int oldMouseY: 0
         property int startMouseY: 0
         property int oldMouseX: 0
@@ -156,7 +159,7 @@ PlasmaCore.ColorScope {
             }
         }
 
-        DropShadow {
+        /*DropShadow {
             anchors.fill: icons
             visible: !showingApp
             cached: true
@@ -166,27 +169,37 @@ PlasmaCore.ColorScope {
             samples: 17
             color: Qt.rgba(0,0,0,0.8)
             source: icons
+        }*/
+
+
+        Wallpaper.Image {
+            id: imageWallpaper
+            renderingMode: Wallpaper.Image.SingleImage
         }
+
+        Image{
+            anchors.fill: parent
+            source: imageWallpaper.wallpaperPath
+            fillMode: Image.PreserveAspectCrop
+            verticalAlignment: Image.AlignBottom
+            clip: true
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            color: showingApp ? root.backgroundColor : "transparent"
+        }
+
         Item {
             id: icons
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: parent.height / 3 * 2
+
 
             visible: plasmoid.configuration.PanelButtonsVisible
             property real buttonLength: 0
-            
-            Rectangle {
-                anchors.fill: parent
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0
-                        color: showingApp ? root.backgroundColor : "transparent"
-                    }
-                    GradientStop {
-                        position: 1
-                        color: showingApp ? root.backgroundColor : Qt.rgba(0, 0, 0, 0.1)
-                    }
-                }
-            }
 
             Button {
                 id: tasksButton
@@ -198,9 +211,10 @@ PlasmaCore.ColorScope {
                     }
                     plasmoid.nativeInterface.showDesktop = false;
                     taskSwitcher.visible ? taskSwitcher.hide() : taskSwitcher.show();
+                    
                 }
-                iconSizeFactor: 0.75
-                iconSource: "mobile-task-switcher"
+                iconSizeFactor: 1
+                iconSource: "/usr/share/icons/rosa/rosa-rectangle.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
 
@@ -217,7 +231,7 @@ PlasmaCore.ColorScope {
                     plasmoid.nativeInterface.allMinimizedChanged();
                 }
                 iconSizeFactor: 1
-                iconSource: "start-here-kde"
+                iconSource: "/usr/share/icons/rosa/rosa-blob.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
 
@@ -243,8 +257,8 @@ PlasmaCore.ColorScope {
                 }
 
                 // mobile-close-app (from plasma-frameworks) seems to have less margins than icons from breeze-icons
-                iconSizeFactor: TaskPanel.KWinVirtualKeyboard.visible ? 1 : 0.75
-                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "mobile-close-app"
+                iconSizeFactor: 1
+                iconSource: TaskPanel.KWinVirtualKeyboard.visible ? "go-down-symbolic" : "/usr/share/icons/rosa/rosa-back.svg"
                 colorGroup: root.showingApp ? PlasmaCore.Theme.NormalColorGroup : PlasmaCore.Theme.ComplementaryColorGroup
             }
         }

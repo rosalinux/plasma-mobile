@@ -66,11 +66,7 @@ DragDrop.DropArea {
     onDragMove: {
         let posInFavorites = favoriteStrip.mapFromItem(this, event.x, event.y);
         if (posInFavorites.y > 0) {
-            if (HomeScreenComponents.ApplicationListModel.favoriteCount >= HomeScreenComponents.ApplicationListModel.maxFavoriteCount ) {
-                launcherDragManager.hideSpacer();
-            } else {
-                launcherDragManager.showSpacerAtPos(event.x, event.y, favoriteStrip);
-            }
+            launcherDragManager.hideSpacer();
             appletsLayout.hidePlaceHolder();
         } else {
             appletsLayout.showPlaceHolderAt(
@@ -82,6 +78,7 @@ DragDrop.DropArea {
             launcherDragManager.hideSpacer();
 
             let scenePos = mapToItem(null, event.x, event.y);
+            
             //SCROLL LEFT
             if (scenePos.x < PlasmaCore.Units.gridUnit) {
                 mainFlickable.scrollLeft();
@@ -92,11 +89,13 @@ DragDrop.DropArea {
             } else {
                 mainFlickable.stopScroll();
             }
+            
         }
     }
 
     onDragLeave: {
         appletsLayout.hidePlaceHolder();
+        launcherDragManager.hideSpacer();
         launcherDragManager.active = false;
     }
 
@@ -114,7 +113,7 @@ DragDrop.DropArea {
                 }
 
                 let pos = Math.min(HomeScreenComponents.FavoritesModel.count, Math.floor(posInFavorites.x/favoriteStrip.cellWidth))
-                HomeScreenComponents.FavoritesModel.addFavorite(storageId, pos, HomeScreenComponents.ApplicationListModel.Favorites)
+                //HomeScreenComponents.FavoritesModel.addFavorite(storageId, pos, HomeScreenComponents.ApplicationListModel.Favorites)
                 let item = launcherRepeater.itemAt(pos);
 
                 if (item) {
@@ -153,7 +152,7 @@ DragDrop.DropArea {
 
         anchors {
             fill: parent
-            bottomMargin: dropArea.favoriteStrip ? dropArea.favoriteStrip.height : 0
+            bottomMargin: 0//dropArea.favoriteStrip ? dropArea.favoriteStrip.height : 0
         }
 
         signal appletsLayoutInteracted
@@ -167,7 +166,7 @@ DragDrop.DropArea {
                 appletsLayout.editMode = false;
                 appletsLayout.forceActiveFocus();
             }
-            onLongPressed: appletsLayout.editMode = true;
+            //onLongPressed: appletsLayout.editMode = true;
             onPressedChanged: appletsLayout.focus = true;
         }
 

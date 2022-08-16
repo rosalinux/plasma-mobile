@@ -34,7 +34,7 @@ FocusScope {
             return;
         }
 
-        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = Math.max(4, Math.floor(Math.min(width, height) / homeScreenContents.appletsLayout.cellWidth));
+        HomeScreenComponents.ApplicationListModel.maxFavoriteCount = 3;
     }
 
 //END functions
@@ -50,14 +50,14 @@ FocusScope {
         }
         function onSnapHomeScreenPosition() {
             if (lastRequestedPosition < 0) {
-                root.appDrawer.open();
+                //root.appDrawer.open();
             } else {
                 root.appDrawer.close();
             }
         }
         function onRequestRelativeScroll(pos) {
-            root.appDrawer.offset -= pos.y;
-            lastRequestedPosition = pos.y;
+            //root.appDrawer.offset -= pos.y;
+            //lastRequestedPosition = pos.y;
         }
     }
 
@@ -104,14 +104,14 @@ FocusScope {
         }
         function onSnapHomeScreenPosition() {
             if (lastRequestedPosition < 0) {
-                root.appDrawer.open();
+                //root.appDrawer.open();
             } else {
                 root.appDrawer.close();
             }
         }
         function onRequestRelativeScroll(pos) {
-            root.appDrawer.offset -= pos.y;
-            lastRequestedPosition = pos.y;
+            //root.appDrawer.offset -= pos.y;
+            //lastRequestedPosition = pos.y;
         }
     }
 
@@ -128,9 +128,9 @@ FocusScope {
 
         appDrawer: root.appDrawer
         contentWidth: Math.max(width, width * Math.ceil(homeScreenContents.itemsBoundingRect.width/width)) + (homeScreenContents.launcherDragManager.active ? width : 0)
-        showAddPageIndicator: homeScreenContents.launcherDragManager.active
+        showAddPageIndicator: false//homeScreenContents.launcherDragManager.active
 
-        dragGestureEnabled: root.focus && (!appDrawer || appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) && !appletsLayout.editMode && !plasmoid.editMode && !homeScreenContents.launcherDragManager.active
+        dragGestureEnabled: false//root.focus && (!appDrawer || appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) && !appletsLayout.editMode && !plasmoid.editMode && !homeScreenContents.launcherDragManager.active
 
         HomeScreenComponents.HomeScreenContents {
             id: homeScreenContents
@@ -142,7 +142,7 @@ FocusScope {
             id: favoriteStrip
 
             appletsLayout: homeScreenContents.appletsLayout
-            visible: flow.children.length > 0 || homeScreenContents.launcherDragManager.active || homeScreenContents.containsDrag
+            visible: flow.children.length > 0
             opacity: homeScreenContents.launcherDragManager.active && HomeScreenComponents.ApplicationListModel.favoriteCount >= HomeScreenComponents.ApplicationListModel.maxFavoriteCount ? 0.3 : 1
 
             TapHandler {
@@ -174,7 +174,7 @@ FocusScope {
             plasmoid.nativeInterface.showingDesktop = true
         } else if (appDrawer.status !== HomeScreenComponents.AbstractAppDrawer.Status.Open) {
             mainFlickable.currentIndex = 0
-            root.appDrawer.open()
+            //root.appDrawer.open()
         } else {
             plasmoid.nativeInterface.showingDesktop = false
             root.appDrawer.close()

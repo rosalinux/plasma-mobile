@@ -17,8 +17,8 @@ import "providers"
 Item {
     required property QtObject provider
     
-    width: strengthIcon.height + strengthLabel.width
-    Layout.minimumWidth: strengthIcon.height + strengthLabel.width
+    width: strengthIcon.width + strengthLabel.width
+    Layout.minimumWidth: strengthIcon.width + strengthLabel.width
 
     PlasmaCore.IconItem {
         id: strengthIcon
@@ -32,7 +32,7 @@ Item {
     }
 
     PlasmaComponents.Label {
-        id: label
+        id: strengthLabel
         anchors.left: strengthIcon.right
         anchors.verticalCenter: parent.verticalCenter
 

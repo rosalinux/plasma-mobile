@@ -21,7 +21,7 @@ Item {
     readonly property int reservedSpaceForLabel: metrics.height
     readonly property int cellWidth: root.width / Math.floor(root.width / ((availableCellHeight - reservedSpaceForLabel) + PlasmaCore.Units.smallSpacing*4))
     readonly property int cellHeight: availableCellHeight
-    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge + reservedSpaceForLabel
+    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge * 1.5 + reservedSpaceForLabel
 
     property ContainmentLayoutManager.AppletsLayout appletsLayout
 

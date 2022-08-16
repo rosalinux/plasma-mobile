@@ -19,7 +19,7 @@
 #include <Plasma/Applet>
 #include <PlasmaQuick/AppletQuickItem>
 
-constexpr int MAX_FAVOURITES = 5;
+constexpr int MAX_FAVOURITES = 3;
 
 FavoritesModel::FavoritesModel(QObject *parent)
     : ApplicationListModel(parent)

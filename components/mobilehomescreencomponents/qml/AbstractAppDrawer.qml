@@ -67,7 +67,7 @@ Item {
     signal dragStarted
 
     readonly property int reservedSpaceForLabel: metrics.height
-    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge + reservedSpaceForLabel
+    property int availableCellHeight: PlasmaCore.Units.iconSizes.huge * 1.5 + reservedSpaceForLabel
 
     readonly property real openFactor: factorNormalize(flickable.contentY / (units.gridUnit * 10))
 
@@ -186,19 +186,6 @@ Item {
                 color: "transparent"
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.drawerTopMargin
-                
-                OpenDrawerButton {
-                    id: openDrawerButton
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    factor: root.openFactor
-                    flickable: view
-                    onOpenRequested: root.open();
-                    onCloseRequested: root.close();
-                }
             }
             
             // actual drawer

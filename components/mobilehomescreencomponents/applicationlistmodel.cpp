@@ -31,7 +31,7 @@
 #include <Plasma/Applet>
 #include <PlasmaQuick/AppletQuickItem>
 
-constexpr int MAX_FAVOURITES = 5;
+constexpr int MAX_FAVOURITES = 3;
 
 ApplicationListModel::ApplicationListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -51,7 +51,8 @@ void ApplicationListModel::loadSettings()
     if (!m_applet) {
         return;
     }
-    m_favorites = m_applet->applet()->config().readEntry("Favorites", QStringList());
+    m_applet->applet()->config().writeEntry("Favorites", QStringList());
+    //m_favorites = m_applet->applet()->config().readEntry("Favorites", QStringList());
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     const auto di = m_applet->applet()->config().readEntry("DesktopItems", QStringList());
     m_desktopItems = QSet<QString>(di.begin(), di.end());
