@@ -2,7 +2,7 @@ Name:		plasma-mobile
 Version:	5.25.3
 Release:	1
 Summary:	Plasma components for mobile phones
-Source0:	plasma-phone-components-5.25.3.tar.gz
+Source0:	plasma-mobile-5.25.3.tar.gz
 Patch0:		plasma-phone-components-x11-session.patch
 Patch2:		plasma-phone-components-dont-start-to-lockscreen.patch
 License:	GPLv2/LGPLv2/LGPLv2.1
