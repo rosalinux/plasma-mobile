@@ -1,5 +1,6 @@
 Name:		plasma-mobile
 Version:	5.25.3
+Release:	1
 Summary:	Plasma components for mobile phones
 Source0:	plasma-phone-components-5.25.3.tar.gz
 Patch0:		plasma-phone-components-x11-session.patch
