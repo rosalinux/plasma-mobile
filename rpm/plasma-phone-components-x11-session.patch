@@ -1,0 +1,119 @@
+diff -up plasma-mobile-5.25.0/bin/CMakeLists.txt.1~ plasma-mobile-5.25.0/bin/CMakeLists.txt
+--- plasma-mobile-5.25.0/bin/CMakeLists.txt.1~	2022-06-15 00:47:03.776269824 +0200
++++ plasma-mobile-5.25.0/bin/CMakeLists.txt	2022-06-15 00:48:37.257719658 +0200
+@@ -4,9 +4,16 @@
+ 
+ configure_file(kwinwrapper.in ${CMAKE_CURRENT_BINARY_DIR}/kwinwrapper)
+ install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/kwinwrapper DESTINATION ${KDE_INSTALL_BINDIR})
++configure_file(kwinwrapper_x11.in ${CMAKE_CURRENT_BINARY_DIR}/kwinwrapper_x11)
++install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/kwinwrapper_x11 DESTINATION ${KDE_INSTALL_BINDIR})
+ 
+ configure_file(plasma-mobile.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/plasma-mobile.desktop)
+ install(FILES
+         ${CMAKE_CURRENT_BINARY_DIR}/plasma-mobile.desktop
+         DESTINATION ${KDE_INSTALL_DATADIR}/wayland-sessions
+ )
++configure_file(plasma-mobile-x11.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/plasma-mobile-x11.desktop)
++install(FILES
++        ${CMAKE_CURRENT_BINARY_DIR}/plasma-mobile-x11.desktop
++        DESTINATION ${KDE_INSTALL_DATADIR}/xsessions
++)
+diff -up plasma-mobile-5.25.0/bin/kwinwrapper_x11.in.1~ plasma-mobile-5.25.0/bin/kwinwrapper_x11.in
+--- plasma-mobile-5.25.0/bin/kwinwrapper_x11.in.1~	2022-06-15 00:47:03.776269824 +0200
++++ plasma-mobile-5.25.0/bin/kwinwrapper_x11.in	2022-06-15 00:47:03.776269824 +0200
+@@ -0,0 +1,22 @@
++#!/bin/sh
++
++[ -f /etc/profile ] && . /etc/profile
++
++export QT_QPA_PLATFORM=xcb
++export QT_QPA_PLATFORMTHEME=KDE
++export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
++export EGL_PLATFORM=x11
++
++export QT_QUICK_CONTROLS_STYLE=org.kde.breeze
++export QT_ENABLE_GLYPH_CACHE_WORKAROUND=1
++export QT_QUICK_CONTROLS_MOBILE=true
++export PLASMA_INTEGRATION_USE_PORTAL=1
++export PLASMA_PLATFORM=phone:handset
++export QT_VIRTUALKEYBOARD_STYLE=Plasma
++
++export GRID_UNIT_PX=25
++export FORCE_RIL_NUM_MODEMS=1
++export PLASMA_DEFAULT_SHELL=org.kde.plasma.phoneshell
++
++touch /tmp/simplelogin_starting
++startplasma-x11 --libinput --inputmethod maliit-keyboard --exit-with-session=/usr/lib64/libexec/startplasma-waylandsession
+diff -up plasma-mobile-5.25.0/bin/plasma-mobile-x11.desktop.cmake.1~ plasma-mobile-5.25.0/bin/plasma-mobile-x11.desktop.cmake
+--- plasma-mobile-5.25.0/bin/plasma-mobile-x11.desktop.cmake.1~	2022-06-15 00:47:03.777269829 +0200
++++ plasma-mobile-5.25.0/bin/plasma-mobile-x11.desktop.cmake	2022-06-15 00:47:03.777269829 +0200
+@@ -0,0 +1,69 @@
++[Desktop Entry]
++Exec=${CMAKE_INSTALL_FULL_BINDIR}/kwinwrapper_x11
++TryExec=${CMAKE_INSTALL_FULL_BINDIR}/kwinwrapper_x11
++DesktopNames=KDE
++Name=Plasma Mobile (X11)
++Name[ca]=Plasma mòbil (X11)
++Name[ca@valencia]=Plasma Mòbil (X11)
++Name[cs]=Plasma Mobile (X11)
++Name[da]=Plasma Mobile (X11)
++Name[de]=Plasma Mobile (X11)
++Name[en_GB]=Plasma Mobile (X11)
++Name[es]=Plasma Mobile (X11)
++Name[et]=Plasma Mobile (X11)
++Name[eu]=Plasma Mugikorra (X11)
++Name[fi]=Plasma Mobile (X11)
++Name[fr]=Plasma Mobile (X11)
++Name[gl]=Plasma Mobile (X11)
++Name[hu]=Plasma Mobile (X11)
++Name[ia]=Plasma Mobile (X11)
++Name[id]=Plasma Mobile (X11)
++Name[it]=Plasma Mobile (X11)
++Name[ko]=Plasma 모바일 (X11)
++Name[lt]=Plasma mobilioji sąsaja (X11)
++Name[nl]=Plasma-mobiel (X11)
++Name[nn]=Plasma Mobile (X11)
++Name[pl]=Plazma Mobile (X11)
++Name[pt]=Plasma Mobile (X11)
++Name[pt_BR]=Plasma Mobile (X11)
++Name[ru]=Plasma Mobile (X11)
++Name[sk]=Plasma Mobile (X11)
++Name[sl]=Plasma Mobile (X11)
++Name[sv]=Plasma mobil (X11)
++Name[uk]=Мобільна Плазма (X11)
++Name[x-test]=xxPlasma Mobile (X11)xx
++Name[zh_CN]=Plasma Mobile (X11)
++Name[zh_TW]=Plasma 行動 (X11)
++Comment=Plasma Mobile by KDE (X11)
++Comment[ca]=Plasma mòbil, creat per la comunitat KDE (X11)
++Comment[ca@valencia]=Plasma Mòbil, creat per la comunitat KDE (X11)
++Comment[cs]=Plasma Mobile od KDE (X11)
++Comment[da]=Plasma Mobile fra KDE (X11)
++Comment[de]=Plasma Mobile von KDE (X11)
++Comment[en_GB]=Plasma Mobile by KDE (X11)
++Comment[es]=Plasma Mobile creado por KDE (X11)
++Comment[et]=KDE Plasma Mobile (X11)
++Comment[eu]=Plasma Mugikorra KDEk egina (X11)
++Comment[fi]=KDE:n Plasma Mobile (X11)
++Comment[fr]=Plasma Mobile par KDE (X11)
++Comment[gl]=Plasma Mobile de KDE (X11)
++Comment[hu]=Plasma Mobile a KDE-től (X11)
++Comment[ia]=Plasma Mobile per KDE (X11)
++Comment[id]=Plasma Mobile oleh KDE (X11)
++Comment[it]=Plasma Mobile creato da KDE (X11)
++Comment[ko]=KDE의 Plasma 모바일 (X11)
++Comment[lt]=Plasma mobilioji sąsaja pagal KDE (X11)
++Comment[nl]=Plasma-mobiel door KDE (X11)
++Comment[nn]=Plasma Mobile frå KDE (X11)
++Comment[pl]=Plazma Mobile stworzona przez KDE (X11)
++Comment[pt]=Plasma Mobile do KDE (X11)
++Comment[pt_BR]=Plasma Mobile do KDE (X11)
++Comment[ru]=KDE Plasma Mobile (X11)
++Comment[sk]=Plasma Mobile od KDE (X11)
++Comment[sl]=Plasma Mobile od KDE (X11)
++Comment[sv]=Plasma mobil av KDE (X11)
++Comment[uk]=Мобільна Плазма від KDE (X11)
++Comment[x-test]=xxPlasma Mobile by KDE (X11)xx
++Comment[zh_CN]=KDE Plasma Mobile (X11)
++Comment[zh_TW]=來自 KDE 的 Plasma 行動作業系統 (X11)
++X-KDE-PluginInfo-Version=${PROJECT_VERSION}

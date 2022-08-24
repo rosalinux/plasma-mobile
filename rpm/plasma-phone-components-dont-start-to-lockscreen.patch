@@ -1,0 +1,9 @@
+diff -up plasma-mobile-5.24.0/bin/kwinwrapper.in.2~ plasma-mobile-5.24.0/bin/kwinwrapper.in
+--- plasma-mobile-5.24.0/bin/kwinwrapper.in.2~	2022-02-10 01:29:41.582038806 +0100
++++ plasma-mobile-5.24.0/bin/kwinwrapper.in	2022-02-10 01:30:13.479130596 +0100
+@@ -21,4 +21,4 @@ export PLASMA_PLATFORM=phone:handset
+ 
+ # TODO port away from PLASMA_DEFAULT_SHELL into QT_QPA_PLATFORM=offscreen plasma-apply-lookandfeel --apply org.kde.plasma.phone
+ export PLASMA_DEFAULT_SHELL=org.kde.plasma.phoneshell
+-startplasma-wayland --xwayland --lockscreen --inputmethod maliit-keyboard --exit-with-session=@KDE_INSTALL_FULL_LIBEXECDIR@/startplasma-waylandsession
++startplasma-wayland --xwayland --inputmethod maliit-keyboard --exit-with-session=@KDE_INSTALL_FULL_LIBEXECDIR@/startplasma-waylandsession
