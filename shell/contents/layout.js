@@ -18,8 +18,8 @@ desktopsArray[0].writeConfig("global", "Meta+F1")
 var panel = new Panel("org.kde.phone.panel");
 panel.location = "top";
 panel.addWidget("org.kde.plasma.notifications");
-panel.height = 1.25 * gridUnit; // HACK: supposed to be gridUnit + smallSpacing, but it doesn't seem to give the correct number
+panel.height = 2.25 * gridUnit; // HACK: supposed to be gridUnit + smallSpacing, but it doesn't seem to give the correct number
 
 var bottomPanel = new Panel("org.kde.phone.taskpanel")
 bottomPanel.location = "bottom";
-bottomPanel.height = 2 * gridUnit;
+bottomPanel.height = 3 * gridUnit;
