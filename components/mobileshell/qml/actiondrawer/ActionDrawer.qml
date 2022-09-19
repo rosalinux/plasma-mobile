@@ -63,7 +63,7 @@ Item {
     /**
      * The mode of the action drawer (portrait or landscape).
      */
-    property int mode: (height > width && width <= largePortraitThreshold) ? ActionDrawer.Portrait : ActionDrawer.Landscape
+    property int mode: (height > width) ? ActionDrawer.Portrait : ActionDrawer.Landscape
     
     /**
      * At some point, even if the screen is technically portrait, if we have a ton of width it'd be best to just show the landscape mode.
