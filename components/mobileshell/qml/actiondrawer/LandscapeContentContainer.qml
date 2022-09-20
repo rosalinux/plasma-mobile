@@ -28,7 +28,7 @@ PlasmaCore.ColorScope {
     
     readonly property real minimizedQuickSettingsOffset: height
     readonly property real maximizedQuickSettingsOffset: height
-    readonly property bool isOnLargeScreen: width > quickSettings.width * 2.5
+    readonly property bool isOnLargeScreen: false//width > quickSettings.width * 2.5
     readonly property real minWidthHeight: Math.min(root.width, root.height)
     readonly property real opacityValue: Math.max(0, Math.min(1, actionDrawer.offset / root.minimizedQuickSettingsOffset))
     
