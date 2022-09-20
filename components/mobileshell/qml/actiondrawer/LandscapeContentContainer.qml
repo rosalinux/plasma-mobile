@@ -28,7 +28,7 @@ PlasmaCore.ColorScope {
     
     readonly property real minimizedQuickSettingsOffset: height
     readonly property real maximizedQuickSettingsOffset: height
-    readonly property bool isOnLargeScreen: false//width > quickSettings.width * 2.5
+    readonly property bool isOnLargeScreen: width > quickSettings.width * 2.5
     readonly property real minWidthHeight: Math.min(root.width, root.height)
     readonly property real opacityValue: Math.max(0, Math.min(1, actionDrawer.offset / root.minimizedQuickSettingsOffset))
     
@@ -39,10 +39,11 @@ PlasmaCore.ColorScope {
         anchors.fill: parent
         
         // darken if there are notifications
-        color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
+        /*color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
                        PlasmaCore.Theme.backgroundColor.g, 
                        PlasmaCore.Theme.backgroundColor.b, 
-                       notificationWidget.hasNotifications ? 0.95 : 0.9)
+                       notificationWidget.hasNotifications ? 0.95 : 0.9)*/
+                       color: root.isOnLargeScreen ? 'blue' : 'red'
         Behavior on color { ColorAnimation { duration: PlasmaCore.Units.longDuration } }
         opacity: opacityValue
     }
