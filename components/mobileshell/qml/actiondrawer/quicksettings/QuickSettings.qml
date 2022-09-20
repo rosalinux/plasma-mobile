@@ -28,7 +28,7 @@ Item {
     
     readonly property real columns: Math.round(Util.applyMinMaxRange(3, 6, width / intendedColumnWidth))
     readonly property real columnWidth: Math.floor(width / columns)
-    readonly property int minimizedColumns: Math.round(Util.applyMinMaxRange(5, 8, width / intendedMinimizedColumnWidth))
+    readonly property int minimizedColumns: Math.round(Util.applyMinMaxRange(3, 8, width / intendedMinimizedColumnWidth))
     readonly property real minimizedColumnWidth: Math.floor(width / minimizedColumns)
     
     readonly property real rowHeight: columnWidth * 0.7
