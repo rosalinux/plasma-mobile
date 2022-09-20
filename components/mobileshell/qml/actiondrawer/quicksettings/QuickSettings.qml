@@ -34,7 +34,7 @@ Item {
     readonly property real rowHeight: columnWidth * 0.7
     readonly property real fullHeight: fullView.implicitHeight
     
-    readonly property real intendedColumnWidth: 120
+    readonly property real intendedColumnWidth: intendedMinimizedColumnWidth//120
     readonly property real intendedMinimizedColumnWidth: PlasmaCore.Units.gridUnit * 3 + PlasmaCore.Units.largeSpacing
     readonly property real minimizedRowHeight: PlasmaCore.Units.gridUnit * 3 + PlasmaCore.Units.largeSpacing
     
