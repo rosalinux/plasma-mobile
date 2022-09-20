@@ -37,10 +37,11 @@ PlasmaCore.ColorScope {
     Rectangle {
         anchors.fill: parent
         // darken if there are notifications
-        color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
+        /*color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
                        PlasmaCore.Theme.backgroundColor.g, 
                        PlasmaCore.Theme.backgroundColor.b, 
-                       notificationWidget.hasNotifications ? 0.95 : 0.7)
+                       notificationWidget.hasNotifications ? 0.95 : 0.7)*/
+                       color: "red"
         Behavior on color { ColorAnimation { duration: PlasmaCore.Units.longDuration } }
         opacity: Math.max(0, Math.min(1, actionDrawer.offset / root.minimizedQuickSettingsOffset))
     }

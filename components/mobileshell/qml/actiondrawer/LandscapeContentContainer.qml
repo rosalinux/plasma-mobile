@@ -39,11 +39,10 @@ PlasmaCore.ColorScope {
         anchors.fill: parent
         
         // darken if there are notifications
-        /*color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
+        color: Qt.rgba(PlasmaCore.Theme.backgroundColor.r, 
                        PlasmaCore.Theme.backgroundColor.g, 
                        PlasmaCore.Theme.backgroundColor.b, 
-                       notificationWidget.hasNotifications ? 0.95 : 0.9)*/
-                       color: root.isOnLargeScreen ? 'blue' : 'red'
+                       notificationWidget.hasNotifications ? 0.95 : 0.9)
         Behavior on color { ColorAnimation { duration: PlasmaCore.Units.longDuration } }
         opacity: opacityValue
     }
