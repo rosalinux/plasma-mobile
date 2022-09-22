@@ -10,9 +10,9 @@ print("Applying shell updates for 5.24...")
 for (let i in panels()) {
     print("Found panel of type: " + panels()[i].type);
     if (panels()[i].type === "org.kde.phone.panel") {
-        panels()[i].height = 1.25 * gridUnit;
+        panels()[i].height = 2.25 * gridUnit;
     } else if (panels()[i].type === "org.kde.phone.taskpanel") {
-        panels()[i].height = 2 * gridUnit;
+        panels()[i].height = 3 * gridUnit;
     }
 }
 

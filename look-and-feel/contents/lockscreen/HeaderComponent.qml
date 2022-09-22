@@ -14,17 +14,17 @@ import org.kde.notificationmanager 1.0 as NotificationManager
 
 Loader {
     id: root
-    
+
     required property real openFactor
-    
-    readonly property real statusBarHeight: PlasmaCore.Units.gridUnit * 1.25
-    
+
+    readonly property real statusBarHeight: PlasmaCore.Units.gridUnit * 2.25
+
     property var notificationsModel: []
-    
+
     signal passwordRequested()
-    
+
     asynchronous: true
-    
+
     sourceComponent: Item {
         // top status bar
         MobileShell.StatusBar {

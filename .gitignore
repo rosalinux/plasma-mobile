@@ -18,3 +18,11 @@ build
 .kdev4/
 *.kdev4
 #/build*
+
+rpm/BUILD
+rpm/RPMS
+rpm/BUILDROOT
+rpm/SRPMS
+
+rpm/plasma-mobile-*.tar.gz
+rpm/plasma-mobile*.buildlog

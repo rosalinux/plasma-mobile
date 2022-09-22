@@ -23,26 +23,26 @@ import "../../components/util.js" as Util
 Item {
     id: root
     clip: true
-    
+
     required property var actionDrawer
-    
-    readonly property real columns: Math.round(Util.applyMinMaxRange(3, 6, width / intendedColumnWidth))
+
+    readonly property real columns: Math.round(Util.applyMinMaxRange(3, 5, width / intendedColumnWidth))
     readonly property real columnWidth: Math.floor(width / columns)
-    readonly property int minimizedColumns: Math.round(Util.applyMinMaxRange(5, 8, width / intendedMinimizedColumnWidth))
+    readonly property int minimizedColumns: Math.round(Util.applyMinMaxRange(3, 5, width / intendedMinimizedColumnWidth))
     readonly property real minimizedColumnWidth: Math.floor(width / minimizedColumns)
-    
+
     readonly property real rowHeight: columnWidth * 0.7
     readonly property real fullHeight: fullView.implicitHeight
-    
-    readonly property real intendedColumnWidth: 120
+
+    readonly property real intendedColumnWidth: PlasmaCore.Units.gridUnit * 5 + PlasmaCore.Units.largeSpacing
     readonly property real intendedMinimizedColumnWidth: PlasmaCore.Units.gridUnit * 3 + PlasmaCore.Units.largeSpacing
     readonly property real minimizedRowHeight: PlasmaCore.Units.gridUnit * 3 + PlasmaCore.Units.largeSpacing
-    
+
     property real minimizedViewProgress: 0
     property real fullViewProgress: 1
 
     readonly property MobileShell.QuickSettingsModel quickSettingsModel: MobileShell.QuickSettingsModel {}
-    
+
     readonly property int columnCount: Math.floor(width/columnWidth)
     readonly property int rowCount: {
         let totalRows = quickSettingsCount / columnCount;
@@ -50,10 +50,10 @@ Item {
         let targetRows = Math.floor(Window.height * (isPortrait ? 0.65 : 0.8) / rowHeight);
         return Math.min(totalRows, targetRows);
     }
-    
+
     readonly property int pageSize: rowCount * columnCount
     readonly property int quickSettingsCount: quickSettingsModel.count
-        
+
     function resetSwipeView() {
         if (MobileShell.Shell.orientation === MobileShell.Shell.Portrait) {
             pageLoader.item.view.currentIndex = 0;
@@ -70,29 +70,29 @@ Item {
             }
         }
     }
-    
+
     // view when fully open
     ColumnLayout {
         id: fullView
         opacity: root.fullViewProgress
         visible: opacity !== 0
         transform: Translate { y: (1 - fullView.opacity) * root.rowHeight }
-        
+
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        
+
         // Dynamically loads the appropriate view
         Loader {
             id: pageLoader
-            
+
             Layout.fillWidth: true
             Layout.minimumHeight: rowCount * rowHeight
 
             asynchronous: true
             sourceComponent: MobileShell.Shell.orientation === MobileShell.Shell.Portrait ? swipeViewComponent : scrollViewComponent
         }
-        
+
         BrightnessItem {
             id: brightnessItem
             Layout.bottomMargin: PlasmaCore.Units.smallSpacing * 2
@@ -101,7 +101,7 @@ Item {
             Layout.fillWidth: true
         }
     }
-    
+
     // view when in minimized mode
     RowLayout {
         id: minimizedView
@@ -109,11 +109,11 @@ Item {
         opacity: root.minimizedViewProgress
         visible: opacity !== 0
         transform: Translate { y: (1 - minimizedView.opacity) * -root.rowHeight }
-        
+
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        
+
         Repeater {
             model: MobileShell.PaginateModel {
                 sourceModel: quickSettingsModel
@@ -121,22 +121,22 @@ Item {
             }
             delegate: Components.BaseItem {
                 required property var modelData
-                
+
                 implicitHeight: root.minimizedRowHeight
                 implicitWidth: root.minimizedColumnWidth
                 horizontalPadding: (width - PlasmaCore.Units.gridUnit * 3) / 2
                 verticalPadding: (height - PlasmaCore.Units.gridUnit * 3) / 2
-                
+
                 contentItem: QuickSettingsMinimizedDelegate {
                     restrictedPermissions: actionDrawer.restrictedPermissions
-                    
+
                     text: modelData.text
                     status: modelData.status
                     icon: modelData.icon
                     enabled: modelData.enabled
                     settingsCommand: modelData.settingsCommand
                     toggleFunction: modelData.toggle
-                    
+
                     onCloseRequested: {
                         actionDrawer.close();
                     }
@@ -144,7 +144,7 @@ Item {
             }
         }
     }
-    
+
     // Loads portrait quick settings view
     Component {
         id: swipeViewComponent

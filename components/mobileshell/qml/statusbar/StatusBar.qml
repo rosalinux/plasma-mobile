@@ -101,48 +101,54 @@ Item {
         z: 1
         colorGroup: root.colorGroup
         anchors.fill: parent
-        
         Controls.Control {
             id: control
             topPadding: PlasmaCore.Units.smallSpacing
             bottomPadding: PlasmaCore.Units.smallSpacing
             rightPadding: PlasmaCore.Units.smallSpacing * 3
             leftPadding: PlasmaCore.Units.smallSpacing * 3
-            
-            anchors.fill: parent
+
+            anchors{
+                right: parent.right
+                left: parent.left
+                verticalCenter: parent.verticalCenter
+                leftMargin: MobileShell.Shell.orientation === MobileShell.Shell.Portrait ? 90 : 0
+            }
+            height: parent.height/2 + 12.5
+
             background: Rectangle {
                 color: backgroundColor
             }
-            
+
             contentItem: ColumnLayout {
                 spacing: PlasmaCore.Units.smallSpacing / 2
-                
+
                 RowLayout {
                     id: row
                     Layout.fillWidth: true
                     Layout.maximumHeight: MobileShell.TopPanelControls.panelHeight - control.topPadding - control.bottomPadding
                     spacing: 0
-                    
+
                     // clock
                     ClockText {
                         visible: root.showTime
                         Layout.fillHeight: true
-                        font.pixelSize: textPixelSize
+                        font.pixelSize: textPixelSize * 1.4
                         source: timeSource
                     }
-                    
+
                     Indicators.SignalStrengthIndicator {
                         Layout.fillHeight: true
                         showLabel: true
                         visible: !root.showTime
                         textPixelSize: root.textPixelSize
                     }
-                    
+
                     // spacing in the middle
                     Item {
                         Layout.fillWidth: true
                     }
-                    
+
                     // system tray
                     Repeater {
                         id: statusNotifierRepeater
@@ -158,7 +164,7 @@ Item {
                             Layout.leftMargin: root.elementSpacing
                         }
                     }
-                    
+
                     // applet indicators
                     RowLayout {
                         id: appletIconsRow
@@ -167,42 +173,51 @@ Item {
                         spacing: root.elementSpacing
                         visible: children.length > 0
                     }
-                    
+
                     // system indicators
                     RowLayout {
                         id: indicators
                         Layout.leftMargin: PlasmaCore.Units.smallSpacing // applets have different spacing needs
                         Layout.fillHeight: true
-                        spacing: root.elementSpacing
+                        spacing: 0
 
                         Indicators.SignalStrengthIndicator {
+                            Layout.leftMargin: root.elementSpacing
                             Layout.fillHeight: true
                             showLabel: false
+                            height: parent.height
                             visible: root.showTime
                         }
-                        Indicators.BluetoothIndicator { 
+                        Indicators.BluetoothIndicator {
+                            height: parent.height
+                            Layout.leftMargin: root.elementSpacing
                             Layout.fillHeight: true
                         }
-                        Indicators.WifiIndicator { 
+                        Indicators.WifiIndicator {
+                            height: parent.height
+                            Layout.leftMargin: root.elementSpacing
                             Layout.fillHeight: true
                         }
-                        Indicators.VolumeIndicator { 
+                        Indicators.VolumeIndicator {
+                            height: parent.height
+                            Layout.leftMargin: root.elementSpacing
                             Layout.fillHeight: true
                         }
                         Indicators.BatteryIndicator {
+                            height: parent.height
                             spacing: root.elementSpacing
                             textPixelSize: root.textPixelSize
                             Layout.fillHeight: true
                         }
                     }
                 }
-                
+
                 // extra row with date and mobile provider (for quicksettings panel)
                 RowLayout {
                     spacing: 0
                     visible: root.showSecondRow
                     Layout.fillWidth: true
-                    
+
                     PlasmaComponents.Label {
                         text: Qt.formatDate(timeSource.data.Local.DateTime, "ddd. MMMM d")
                         color: PlasmaCore.ColorScope.disabledTextColor
