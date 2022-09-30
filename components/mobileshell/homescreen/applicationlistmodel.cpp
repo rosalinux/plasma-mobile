@@ -110,6 +110,7 @@ void ApplicationListModel::windowCreated(KWayland::Client::PlasmaWindow *window)
                     idx++;
                 }
             });
+            (*i).window->requestToggleMaximized();
             break;
         }
         idx++;
